@@ -4,84 +4,46 @@
 
 <head>
     <title>Web Development with AI</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lobster&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Playwrite+NZ+Basic:wght@100..400&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family:  "Open Sans", sans-serif;
-            width:60%;
-            margin: auto;
-        }
-        h1, h2, h3, h4, h5, h6 {
-            /* font-family:  "Lobster", sans-serif; */
-            text-transform: uppercase;
-        } 
-        .box {
-           /*border:2px solid;*/
-           height:150px;
-           display:inline-block;
-           width:150px;
-           text-align: center;
-           line-height: 150px;
-           border-radius: 50%;
-           font-size: 72px;
-           font-weight: 900;
-        }
-        #box-1 {
-            background-color: green;
-        }
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lobster&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Playwrite+NZ+Basic:wght@100..400&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
 
-        #box-2{
-            background-color: yellow;
-        }
+    <link href="./assets/css/styles.css" rel="stylesheet" />
 
-        #box-3{
-            background-color: red;
-        }
-      #banner {
-           background-color: rgb(0, 0, 0); 
-           /* font-size:36px; */
-           /* border:2px solid rgb(248, 202, 202); */
-           margin-top:0px;
-           margin-bottom:50px;
-           padding:30px;
-           /* border-radius: 30px; */
-           color:white;
- 
-      }
-      footer {
-        background-color: black;
-        color:white;
-        height: 80px;
-        padding: 25px;
-        text-align: center;
-      }
-    section {
-        /* border:5px solid rgb(244, 237, 237); */
-        margin: 15px 0px 15px 0px;
-        padding: 15px;
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    }
 
-    </style>
 </head>
 
 <body>
-    <header id="banner">
-        <h1>Welcome to Web Development - 2026</h1>
+   <header id="banner">
+          <ul id="menu">
+            <li class="active">
+                <a href="./index.html">Home</a>
+            </li>
+            <li>
+                <a href="./about.html">About</a>
+            </li>
+            <li><a href="./courses.html">Courses</a></li>
+            <li>
+                <a href="./blogs.html">Blogs</a>
+            </li>
+            <li>
+                <a href="./contacts.html">Contacts</a>
+            </li>
+        </ul>
 
     </header>
 
 
-<br />
-    <div class="box" id="box-1">1</div>
-    <div class="box" id="box-2">2</div>
-    <div class="box" id="box-3">3</div>
-  
-
-
     <main>
+        <section>
+            <h2>Block and non-blocking elements</h2>
+            <br />
+            <div class="box" id="box-1">1</div>
+            <div class="box" id="box-2">2</div>
+            <div class="box" id="box-3">3</div>
+        </section>
         <section>
             <h2>Frontend Web Development</h2>
             <article>
@@ -113,20 +75,23 @@
                 <img src="/assets/images/css_logo.png" style="width:25%;" />
                 <img src="/assets/images/js_logo.png" style="width:25%;" />
 
-         <div>
-            <p>These are very import links for someone who is becoming a web developer:</p>
-                  <ul>
-                    <li> <a href="https://github.com/Asabeneh/30-Days-Of-HTML" target="_blank">30 Days of HTML</a></li>
-                    <li><a href="https://github.com/Asabeneh/10-days-of-git-and-github" target="_blank">10 Days of Git and GitHub</a></li>
-                    <li><a href="https://github.com/Asabeneh/30-Days-Of-JavaScript" target="_blank">30 Days of JavaScript</a></li>
-                  </ul>
+                <div>
+                    <p>These are very import links for someone who is becoming a web developer:</p>
+                    <ul>
+                        <li> <a href="https://github.com/Asabeneh/30-Days-Of-HTML" target="_blank">30 Days of HTML</a>
+                        </li>
+                        <li><a href="https://github.com/Asabeneh/10-days-of-git-and-github" target="_blank">10 Days of
+                                Git and GitHub</a></li>
+                        <li><a href="https://github.com/Asabeneh/30-Days-Of-JavaScript" target="_blank">30 Days of
+                                JavaScript</a></li>
+                    </ul>
 
-   
-         </div>
-               
 
-                
-                
+                </div>
+
+
+
+
                 <!--Block element - they like to take entire width -->
                 <h2>Subtitle 1</h2>
                 <h2>Subtitle 2</h2>
@@ -232,6 +197,297 @@
                     style="display:block;width: 90%;margin:15px auto;border: 5px solid salmon;border-radius: 5px;"></video>
                 <small>First JavaScript Project</small>
             </article>
+        </section>
+        <section>
+            <h2> YouTube Tutorilas</h2>
+            <article>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat consequuntur accusantium sequi
+                laboriosam, sed accusamus reprehenderit a officiis suscipit cumque tenetur eveniet quidem unde libero
+                obcaecati expedita excepturi incidunt nam!
+            </article>
+            <iframe height="724" src="https://www.youtube.com/embed/wtsv5zNsMaM"
+                title="1 -  Introduction to Web Development" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </section>
+
+        <section>
+            <h2>List of Students</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Name</th>
+                        <th>Gender</th>
+                        <th>Age</th>
+                        <th>Country</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td>21</td>
+                        <td>UK</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Antti</td>
+                        <td>Samuli</td>
+                        <td>25</td>
+                        <td>Finland</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Elena</td>
+                        <td>Rossi</td>
+                        <td>30</td>
+                        <td>Italy</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Takashi</td>
+                        <td>Tanaka</td>
+                        <td>42</td>
+                        <td>Japan</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Amara</td>
+                        <td>Okafor</td>
+                        <td>28</td>
+                        <td>Nigeria</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Lucas</td>
+                        <td>Silva</td>
+                        <td>19</td>
+                        <td>Brazil</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Sophie</td>
+                        <td>Müller</td>
+                        <td>35</td>
+                        <td>Germany</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Arjun</td>
+                        <td>Patel</td>
+                        <td>31</td>
+                        <td>India</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Chloe</td>
+                        <td>Lefebvre</td>
+                        <td>27</td>
+                        <td>France</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>Mateo</td>
+                        <td>Garcia</td>
+                        <td>24</td>
+                        <td>Spain</td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>Liam</td>
+                        <td>O'Connor</td>
+                        <td>29</td>
+                        <td>Ireland</td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>Mei</td>
+                        <td>Chen</td>
+                        <td>22</td>
+                        <td>China</td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>Erik</td>
+                        <td>Nilsson</td>
+                        <td>40</td>
+                        <td>Sweden</td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>Zara</td>
+                        <td>Khan</td>
+                        <td>26</td>
+                        <td>Pakistan</td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>Ivan</td>
+                        <td>Petrov</td>
+                        <td>33</td>
+                        <td>Russia</td>
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                        <td>Hanna</td>
+                        <td>Nielsen</td>
+                        <td>37</td>
+                        <td>Denmark</td>
+                    </tr>
+                    <tr>
+                        <td>17</td>
+                        <td>Diego</td>
+                        <td>Morales</td>
+                        <td>45</td>
+                        <td>Mexico</td>
+                    </tr>
+                    <tr>
+                        <td>18</td>
+                        <td>Fatima</td>
+                        <td>Al-Sayed</td>
+                        <td>31</td>
+                        <td>Egypt</td>
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        <td>Noah</td>
+                        <td>Williams</td>
+                        <td>23</td>
+                        <td>USA</td>
+                    </tr>
+                    <tr>
+                        <td>20</td>
+                        <td>Kim</td>
+                        <td>Ji-hoon</td>
+                        <td>28</td>
+                        <td>South Korea</td>
+                    </tr>
+                    <tr>
+                        <td>21</td>
+                        <td>Olivia</td>
+                        <td>Smith</td>
+                        <td>34</td>
+                        <td>Australia</td>
+                    </tr>
+                    <tr>
+                        <td>22</td>
+                        <td>Lars</td>
+                        <td>Janssen</td>
+                        <td>50</td>
+                        <td>Netherlands</td>
+                    </tr>
+                    <tr>
+                        <td>23</td>
+                        <td>Ines</td>
+                        <td>Ferreira</td>
+                        <td>26</td>
+                        <td>Portugal</td>
+                    </tr>
+                    <tr>
+                        <td>24</td>
+                        <td>Andrej</td>
+                        <td>Novak</td>
+                        <td>39</td>
+                        <td>Slovakia</td>
+                    </tr>
+                    <tr>
+                        <td>25</td>
+                        <td>Sofia</td>
+                        <td>Kostas</td>
+                        <td>29</td>
+                        <td>Greece</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section>
+            <h2>Handing User data</h2>
+            <form>
+                <div>
+                    <label for="firstName">First Name:</label> 
+                    <input type="text" placeholder="Your First Name" id="firstName" /> 
+                </div>
+                <div> 
+                    <label for="lastName">Last Name:</label> 
+                    <input type="text" placeholder="Your Last Name" id="lastName"/>
+                </div>
+                <div> 
+                    <label for="gender">Gender:</label> 
+                    <select id="gender">
+                        <option value="Female">Female</option>
+                        <option value="Male">Male</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                 <div>
+                    <p>Gender</p>
+                    <input type="radio" name="gender" id="female"/> <label for="female">Female</label><br />
+                    <input type="radio" name="gender" id="male"/> <label for="male">Male</label> <br />
+                    <input type="radio" name="gender" id="other"/> <label for="other">Other</label>
+                       
+
+                </div>
+                <div>
+                    <label for="dateOfBirth">Date of birth: </label>
+                    <input type="date" id="dateOfBirth" />
+                </div>
+                  <div>
+                    <label for="age">You age: </label> <br />
+                    <input type="number" min=18 max=120 >
+                    
+                </div>
+                <div>
+                    <label for="dateOfBirth">Date of birth: </label>
+                    <input type="datetime-local" id="dateOfBirth" />
+                </div>
+                 <div>
+                    <label for="dateOfBirth">Date of birth: </label>
+                    <input type="" id="dateOfBirth" />
+                </div>
+                <div>
+                    <label for="email">Email: </label>
+                    <input type="email" id="email" />
+                </div>
+                <div>
+                    <label for="password">Password: </label>
+                    <input type="password" id="password" />
+                </div>
+                <div>
+                    <label for="favColor">Favorite Color: </label>
+                    <input type="color" id="favColor" />
+                </div>
+                <div>
+                    <p>Skills</p>
+                   <div>
+                     <input type="checkbox" id="html"/> <label for="html">HTML</label>
+                   </div>
+                    <div>
+                     <input type="checkbox" id="css"/> <label for="css">CSS</label>
+                   </div>
+                    <div>
+                     <input type="checkbox" id="javascript"/> <label for="javascript">JavaScript</label>
+                   </div>
+                    <div>
+                     <input type="checkbox" id="git"/> <label for="git">Git and GitHub</label>
+                   </div>
+                   
+                </div>
+                <div>
+                    <label for="message">Message:</label> <br />
+                    <textarea rows="10" cols="120"></textarea>
+                </div>
+              
+                <div>
+                    <input type="file" >
+                </div>
+                <div>
+                    <input type="submit" value="Submit" />
+                </div>
+               
+                
+            </form>
         </section>
 
 
