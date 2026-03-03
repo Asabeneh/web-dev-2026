@@ -4,7 +4,8 @@
 
 <head>
     <title>Web Development with AI</title>
-    <script src="https://kit.fontawesome.com/ce3e7ed90f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -12,34 +13,103 @@
         rel="stylesheet">
 
     <link href="./assets/css/styles.css" rel="stylesheet" />
+    <!-- <style>
+        /* 
+        top
+        bottom
+        left
+        right
+        */
+
+        #sea {
+            position: relative;
+            background-color: lightblue;
+            width:600px;
+            height: 600px;
+        }
+        .boat {
+            width: 100px;
+            height: 100px;
+            position:absolute;
+            font-size: 28px; 
+            font-weight: bolder;
+            line-height: 100px;
+            transition: width 2s;
+        }
+
+        .boat:hover {
+            width: 150px;
+        }
+       
+            .boat1 {
+            background-color: green;
+   
+       
+        }
+            .boat2 {
+            background-color: yellow;
+            top:25px;
+            left:25px;
+       
+        
+    
+        }
+            .boat3 {
+            background-color: red;
+            top:50px;
+            left:50px;
+     
+       
+        }
+         .boat4 {
+            background-color: blue;
+            top:75px;
+            left:75px;
+            
+        }
+    </style> -->
+
+    <!--
+Blocking elements takes the entire width
+No-blocking element only takes the space that the content needs and width, height of no-blocking element cannot be changed without changing the display property
+
+    -->
 
 
 </head>
 
 <body>
-   <header id="banner">
+    <header id="banner">
 
-    <i class="fa-solid fa-house"></i>
-          <ul id="menu">
+        <i class="fa-solid fa-house"></i>
+        <ul id="menu">
             <li class="active">
-                <a href="./index.html"> <i class="fa-regular fa-house"></i> Home</a>
+                <a href="./index.html"> Home</a>
             </li>
             <li>
-                <a href="./about.html">About</a>
+                <a href="./pages/about.html"> About</a>
             </li>
-            <li><a href="./courses.html">Courses</a></li>
+            <li><a href="./pages/courses.html">Courses</a></li>
             <li>
-                <a href="./blogs.html">Blogs</a>
+                <a href="./pages/blogs.html">Blogs</a>
             </li>
             <li>
-                <a href="./contacts.html">Contacts</a>
+                <a href="./pages/contacts.html">Contacts</a>
             </li>
         </ul>
 
     </header>
 
 
+
     <main>
+        <!-- <div id="sea">
+
+        <div class="boat boat1">Boat 1</div>
+        <div class="boat boat2">Boat 2</div>
+        <div class="boat boat3">Boat 3</div>
+        <div class="boat boat4">Boat 4</div>
+    </div> -->
         <section>
             <h2>Block and non-blocking elements</h2>
             <br />
@@ -74,9 +144,9 @@
                 </ol>
 
                 <!-- Non-blocking element: they sit next each other -->
-                <img src="/assets/images/html.png" style="width:25%;" />
-                <img src="/assets/images/css_logo.png" style="width:25%;" />
-                <img src="/assets/images/js_logo.png" style="width:25%;" />
+                <img src="./assets/images/html.png" style="width:25%;" />
+                <img src="./assets/images/css_logo.png" style="width:25%;" />
+                <img src="./assets/images/js_logo.png" style="width:25%;" />
 
                 <div>
                     <p>These are very import links for someone who is becoming a web developer:</p>
@@ -170,7 +240,7 @@
         </section>
 
         <section>
-            <h2>Podcasts</h2>
+            <h2><i class="fas fa-podcast"></i> Podcasts</h2>
             <article>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quam animi dignissimos repudiandae
                     ullam, quo esse veniam! Qui sunt aut iure esse, omnis commodi vero libero, optio laboriosam, minima
@@ -191,7 +261,7 @@
         </section>
 
         <section>
-            <h2>Video Lesson</h2>
+            <h2><i class="fas fa-video"></i> Video Lesson</h2>
             <article>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse dolor pariatur saepe itaque, maxime
                     ullam culpa possimus illo, aspernatur laudantium aliquid quas! Itaque illum officia nulla atque
@@ -202,7 +272,7 @@
             </article>
         </section>
         <section>
-            <h2> YouTube Tutorilas</h2>
+            <h2><i class="fab fa-youtube"></i> YouTube Tutorilas</h2>
             <article>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat consequuntur accusantium sequi
                 laboriosam, sed accusamus reprehenderit a officiis suscipit cumque tenetur eveniet quidem unde libero
@@ -215,7 +285,7 @@
         </section>
 
         <section>
-            <h2>List of Students</h2>
+            <h2><i class="fas fa-list"></i> List of Students</h2>
             <table>
                 <thead>
                     <tr>
@@ -409,43 +479,43 @@
             <h2>Handing User data</h2>
             <form>
                 <div>
-                    <label for="firstName">First Name:</label> 
-                    <input type="text" placeholder="Your First Name" id="firstName" /> 
+                    <label for="firstName">First Name:</label>
+                    <input type="text" placeholder="Your First Name" id="firstName" />
                 </div>
-                <div> 
-                    <label for="lastName">Last Name:</label> 
-                    <input type="text" placeholder="Your Last Name" id="lastName"/>
+                <div>
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" placeholder="Your Last Name" id="lastName" />
                 </div>
-                <div> 
-                    <label for="gender">Gender:</label> 
+                <div>
+                    <label for="gender">Gender:</label>
                     <select id="gender">
                         <option value="Female">Female</option>
                         <option value="Male">Male</option>
                         <option value="Other">Other</option>
                     </select>
                 </div>
-                 <div>
+                <div>
                     <p>Gender</p>
-                    <input type="radio" name="gender" id="female"/> <label for="female">Female</label><br />
-                    <input type="radio" name="gender" id="male"/> <label for="male">Male</label> <br />
-                    <input type="radio" name="gender" id="other"/> <label for="other">Other</label>
-                       
+                    <input type="radio" name="gender" id="female" /> <label for="female">Female</label><br />
+                    <input type="radio" name="gender" id="male" /> <label for="male">Male</label> <br />
+                    <input type="radio" name="gender" id="other" /> <label for="other">Other</label>
+
 
                 </div>
                 <div>
                     <label for="dateOfBirth">Date of birth: </label>
                     <input type="date" id="dateOfBirth" />
                 </div>
-                  <div>
+                <div>
                     <label for="age">You age: </label> <br />
-                    <input type="number" min=18 max=120 >
-                    
+                    <input type="number" min=18 max=120>
+
                 </div>
                 <div>
                     <label for="dateOfBirth">Date of birth: </label>
                     <input type="datetime-local" id="dateOfBirth" />
                 </div>
-                 <div>
+                <div>
                     <label for="dateOfBirth">Date of birth: </label>
                     <input type="" id="dateOfBirth" />
                 </div>
@@ -463,33 +533,33 @@
                 </div>
                 <div>
                     <p>Skills</p>
-                   <div>
-                     <input type="checkbox" id="html"/> <label for="html">HTML</label>
-                   </div>
                     <div>
-                     <input type="checkbox" id="css"/> <label for="css">CSS</label>
-                   </div>
+                        <input type="checkbox" id="html" /> <label for="html">HTML</label>
+                    </div>
                     <div>
-                     <input type="checkbox" id="javascript"/> <label for="javascript">JavaScript</label>
-                   </div>
+                        <input type="checkbox" id="css" /> <label for="css">CSS</label>
+                    </div>
                     <div>
-                     <input type="checkbox" id="git"/> <label for="git">Git and GitHub</label>
-                   </div>
-                   
+                        <input type="checkbox" id="javascript" /> <label for="javascript">JavaScript</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="git" /> <label for="git">Git and GitHub</label>
+                    </div>
+
                 </div>
                 <div>
                     <label for="message">Message:</label> <br />
                     <textarea rows="10" cols="120"></textarea>
                 </div>
-              
+
                 <div>
-                    <input type="file" >
+                    <input type="file">
                 </div>
                 <div>
                     <input type="submit" value="Submit" />
                 </div>
-               
-                
+
+
             </form>
         </section>
 
@@ -498,7 +568,85 @@
 
     <footer>
         <p>Web Development 2026 by Asabeneh Copy Right &copy; 2026</p>
+
+        <div>
+            <a href="https://github.com/Asabeneh" target="_blank"><i class="fab fa-github-square"></i></a>
+            <a href="https://www.linkedin.com/in/asabeneh/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://twitter.com/Asabeneh" target="_blank"><i class="fab fa-twitter-square"></i></a>
+        </div>
     </footer>
+
+    <script>
+
+        console.log('love people!')
+        console.log('Hello world!')
+        console.log('The sum is ', 1 + 2)
+        console.log('The difference is ', 2 - 1)
+        console.log('The product is', 2 * 3)
+        console.log('The division', 4 / 2)
+        console.log('The remainder', 7 % 3)
+        console.log('The remainder', 9 % 5)
+        console.log('The exponential', 2 * 2 * 2 * 2, 2 ** 4)
+
+        // double slash are a comment in JavaScript
+
+        // these are JavaScript variables
+
+        // variables store data
+
+        let a = 1
+        let b = 2
+        let c = a + b
+        console.log('The sum is ', c)
+
+        let pi = 3.14
+        let gravity = 9.81
+        let firstName = 'Asabeneh'
+        let lastName = 'Yetayeh'
+        let age = 21
+        let height = 1.72
+        let mass = 75
+
+
+        let weight = mass * gravity
+        console.log('The weight of the person ', weight)
+
+        let bmi = mass / height ** 2
+
+        console.log('The bmi of the person', bmi.toFixed(2))
+        console.log('The bmi of the person', bmi.toPrecision(5))
+
+
+        // Operators: = assignment operator
+
+        let n = 3
+        let m = 4
+
+        // Comparison operators
+        console.log(`Going to be true: ${m} > ${n}`, m > n)
+        console.log(`Going to be false: ${m} < ${n}`, m < n)
+        console.log(4 <= 3)
+        console.log(3 >= 4)
+        console.log(4 != 4)
+        console.log(4 == '4')
+        console.log(4 === '4')
+        console.log(4 === 4)
+
+        // Logical operators &&, ||, !
+        console.log(4 > 3 && 3 < 4)
+        console.log(4 > 3 && 3 > 4)
+
+        console.log(4 > 3 || 3 < 4)
+        console.log(4 > 3 || 3 > 4)
+        console.log(4 < 3 || 3 > 4)
+        console.log(!(4 < 3 || 3 > 4))
+        console.log(!true)
+        console.log(!false)
+
+
+
+
+    </script>
 
 
 
