@@ -1,4 +1,4 @@
-const countriesList = [
+const countries = [
   "Afghanistan",
   "Albania",
   "Algeria",
