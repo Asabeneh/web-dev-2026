@@ -3,13 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Countries</title>
+    <style>
+        .countryWrapper {
+            display: flex;
+            flex-wrap: wrap;
+            width:80%;
+            margin: 0 auto;
+        }
+        .countryWrapper div {
+            width: 300px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            font-size: 24px;
+            border:2px solid rgb(238, 243, 238);
+            margin:10px;
+        }
+        h1, p {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <h1>World Countries Data</h1>
+    <h1>Country List</h1>
+    <!-- <div class="countryWrapper">
+        <div>Finland</div>
+        <div>Sweden</div>
+        <div>Norw</div>
+    </div> -->
 
+
+    <script src="./countries-list.js"></script>
     <script>
-        console.log('I love JavaScript')
+        let p = document.createElement('p')
+
+        p.textContent = `Total number of countries are ${countries.length}`
+
+        let countryWrapper = document.createElement('div')
+        countryWrapper.className = 'countryWrapper'
+        for (let country of countries) {
+            let div = document.createElement('div')
+            div.textContent = country
+            countryWrapper.appendChild(div)
+        }
+        // console.log(countries)
+        document.body.appendChild(p)
+        document.body.appendChild(countryWrapper)
+
+       
     </script>
 </body>
 </html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Number Generator</title>
+    <style>
+        .wrapper {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .wrapper div {
+            margin: 10px;
+            padding: 25px;
+            width: 100px;
+            height: 100px;
+            font-size: 42px;
+            text-align: center;
+            line-height: 100px;
+            border-radius: 5px;
+            color:white;
+        }
+        h1 {
+            text-align: center;
+            font-size: 44px;
+
+        }
+   
+    </style>
+</head>
+
+<body>
+
+
+</body>
+<script>
+
+    /*
+    6 => 1, 2, 3, 4, 5, 6
+    
+    */
+
+    function isPrime(n) {
+
+        if (n < 2) return false
+
+        if (n === 2) {
+            return true
+        }
+
+        for (let i = 2; i < n; i++) {
+            if (n % i === 0) {
+                return false
+            }
+
+        }
+
+        return true
+
+    }
+
+    console.log(isPrime(2))
+    console.log(isPrime(5))
+    console.log(isPrime(7))
+    console.log(isPrime(11))
+
+
+    console.log(isPrime(1))
+    console.log(isPrime(6))
+    console.log(isPrime(15))
+    console.log(isPrime(99))
+
+
+
+
+
+    let h1 = document.createElement('h1')
+    let wrapper = document.createElement('div')
+    wrapper.className = 'wrapper'
+
+    for (let i = 0; i < 101; i++) {
+        let div = document.createElement('div')
+        div.textContent = i
+        if (isPrime(i)){
+             div.style.backgroundColor = '#F77057'
+        } else if (i % 2 == 0) {
+            div.style.backgroundColor = '#57F76A'
+        } else {
+            div.style.backgroundColor = '#F7CF57'
+        }
+        wrapper.appendChild(div)
+    }
+
+
+
+    h1.textContent = 'Random Number Generator'
+
+    document.body.appendChild(h1)
+    document.body.appendChild(wrapper)
+
+
+
+
+</script>
+
+</html>

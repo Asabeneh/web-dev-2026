@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Countries Data</title>
+    <style>
+        .countryWrapper {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .country {
+            width: 300px;
+            border: 2px solid rgb(245, 239, 239);
+            margin: 10px;
+            padding: 20px;
+        }
+
+        .name {
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        img {
+            display: block;
+            max-width: 35%;
+            text-align: center;
+            margin: auto;
+        }
+
+        input {
+            display: block;
+            padding: 15px;
+            width: 80%;
+            margin: auto;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>World Countries Data</h1>
+    <input id="search" placeholder="Search by name, capital, languages" />
+    <!-- <button id="search">bUTTON</button> -->
+
+
+
+    <script src="./countries-info.js"></script>
+    <script>
+         let countryWrapper = document.createElement('div')
+            countryWrapper.className = 'countryWrapper'
+
+
+        function filterCountrisWithPattern(arr, pattern) {
+            return arr.filter((country) => country.name.toLowerCase().includes(pattern.toLowerCase()))
+
+        }
+
+        // console.log(filterCountrisWithPattern(countries, 'land'))
+
+        function renderCountries(arr) {
+            let templates = ''
+            for (let country of arr) {
+                let languages = country.languages
+                let template = `
+        <div class="country">
+            <img class='flag' src="${country.flag}" alt="">
+            <h2 class="name">${country.name}</h2>
+            <div class='country-details'>
+               <h3>Capital:${country.capital}</h3>
+               <h3>Population:${country.population}</h3>
+               <h3>Languages:${languages}</h3>
+            </div>
+        </div>`
+                templates += template
+
+            }
+            countryWrapper.innerHTML = templates
+            document.body.appendChild(countryWrapper)
+        }
+
+renderCountries(countries)
+
+
+
+        let input = document.getElementById('search')
+        input.addEventListener('input', (e) => {
+            countryWrapper.innerHTML = ''
+            let searchTerm = e.target.value
+            const filteredCountries = filterCountrisWithPattern(countries, searchTerm)
+            // console.log(filteredCountries)
+            renderCountries(filteredCountries)
+
+        })
+
+    </script>
+</body>
+
+</html>
