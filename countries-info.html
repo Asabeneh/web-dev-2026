@@ -60,6 +60,11 @@
             white-space: nowrap;
         }
 
+        .toolbar button.active-sort {
+            background: #0f172a;
+            color: #ffffff;
+        }
+
         @media (max-width: 900px) {
             .countryWrapper {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -125,6 +130,41 @@
             population: true
         }
 
+        function updateSortButtons(activeField, isAscending) {
+            const buttons = [nameBtn, capitalBtn, populationBtn]
+            for (const button of buttons) {
+                button.classList.remove('active-sort')
+            }
+
+            if (!activeField) {
+                nameBtn.innerHTML = '<i class="fa-solid fa-arrow-down-a-z"></i> Name'
+                capitalBtn.innerHTML = '<i class="fa-solid fa-city"></i> Capital'
+                populationBtn.innerHTML = '<i class="fa-solid fa-users"></i> Population'
+                return
+            }
+
+            if (activeField === 'name') {
+                nameBtn.classList.add('active-sort')
+                nameBtn.innerHTML = `<i class="fa-solid fa-arrow-down-a-z"></i> Name (${isAscending ? 'A-Z' : 'Z-A'})`
+                capitalBtn.innerHTML = '<i class="fa-solid fa-city"></i> Capital'
+                populationBtn.innerHTML = '<i class="fa-solid fa-users"></i> Population'
+            }
+
+            if (activeField === 'capital') {
+                capitalBtn.classList.add('active-sort')
+                nameBtn.innerHTML = '<i class="fa-solid fa-arrow-down-a-z"></i> Name'
+                capitalBtn.innerHTML = `<i class="fa-solid fa-city"></i> Capital (${isAscending ? 'A-Z' : 'Z-A'})`
+                populationBtn.innerHTML = '<i class="fa-solid fa-users"></i> Population'
+            }
+
+            if (activeField === 'population') {
+                populationBtn.classList.add('active-sort')
+                nameBtn.innerHTML = '<i class="fa-solid fa-arrow-down-a-z"></i> Name'
+                capitalBtn.innerHTML = '<i class="fa-solid fa-city"></i> Capital'
+                populationBtn.innerHTML = `<i class="fa-solid fa-users"></i> Population (${isAscending ? 'Low-High' : 'High-Low'})`
+            }
+        }
+
         const filterCountriesWithPattern = (arr, pattern) => {
             return arr.filter((country) => {
                 const name = country.name.toLowerCase().includes(pattern.toLowerCase())
@@ -153,6 +193,7 @@
             countryWrapper.innerHTML = templates
         }
 
+        updateSortButtons()
         renderCountries(countries)
 
         const input = document.getElementById('search')
@@ -163,32 +204,38 @@
         })
 
         nameBtn.addEventListener('click', () => {
+            const isAscending = sortDirection.name
             if (sortDirection.name) {
                 countries.sort((a, b) => a.name.localeCompare(b.name))
             } else {
                 countries.sort((a, b) => b.name.localeCompare(a.name))
             }
             sortDirection.name = !sortDirection.name
+            updateSortButtons('name', isAscending)
             renderCountries(countries)
         })
 
         capitalBtn.addEventListener('click', () => {
+            const isAscending = sortDirection.capital
             if (sortDirection.capital) {
                 countries.sort((a, b) => (a.capital || '').localeCompare(b.capital || ''))
             } else {
                 countries.sort((a, b) => (b.capital || '').localeCompare(a.capital || ''))
             }
             sortDirection.capital = !sortDirection.capital
+            updateSortButtons('capital', isAscending)
             renderCountries(countries)
         })
 
         populationBtn.addEventListener('click', () => {
+            const isAscending = sortDirection.population
             if (sortDirection.population) {
                 countries.sort((a, b) => a.population - b.population)
             } else {
                 countries.sort((a, b) => b.population - a.population)
             }
             sortDirection.population = !sortDirection.population
+            updateSortButtons('population', isAscending)
             renderCountries(countries)
         })
     </script>
