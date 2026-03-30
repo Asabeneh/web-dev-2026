@@ -43,22 +43,38 @@
 <body>
     <h1>World Countries Data</h1>
     <input id="search" placeholder="Search by name, capital, languages" />
+    <button id="name-btn">Name</button>
+    <button id="capital-btn">Capital</button>
+    <button id="population-btn">Population</button>
     <!-- <button id="search">bUTTON</button> -->
 
 
 
     <script src="./countries-info.js"></script>
     <script>
+        // console.log(countries)
          let countryWrapper = document.createElement('div')
             countryWrapper.className = 'countryWrapper'
 
+        const nameBtn = document.getElementById('name-btn')
+        const capitalBtn = document.getElementById('capital-btn')
+        const population = document.getElementById('population-btn')
 
-        function filterCountrisWithPattern(arr, pattern) {
-            return arr.filter((country) => country.name.toLowerCase().includes(pattern.toLowerCase()))
+     
 
+
+
+
+        const filterCountrisWithPattern = (arr, pattern) =>  {
+            return arr.filter((country) => {
+                 let name =  country.name.toLowerCase().includes(pattern.toLowerCase())
+                 let capital = country.capital?.toLowerCase().includes(pattern.toLowerCase())
+                 let languages = country.languages.join(', ').toLowerCase().includes(pattern.toLowerCase())
+                return name || capital || languages
+            })
         }
 
-        // console.log(filterCountrisWithPattern(countries, 'land'))
+           // console.log(filterCountrisWithPattern(countries, 'land'))
 
         function renderCountries(arr) {
             let templates = ''
@@ -82,9 +98,7 @@
         }
 
 renderCountries(countries)
-
-
-
+        
         let input = document.getElementById('search')
         input.addEventListener('input', (e) => {
             countryWrapper.innerHTML = ''
@@ -92,6 +106,12 @@ renderCountries(countries)
             const filteredCountries = filterCountrisWithPattern(countries, searchTerm)
             // console.log(filteredCountries)
             renderCountries(filteredCountries)
+
+        })
+
+           nameBtn.addEventListener('click', () => {
+            countries.reverse()
+            renderCountries(countries)
 
         })
 
