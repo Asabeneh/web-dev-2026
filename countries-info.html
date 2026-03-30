@@ -19,6 +19,18 @@
             margin-bottom: 1rem;
         }
 
+        .category-toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 1rem;
+        }
+
+        .category-toolbar button.active-category {
+            background: #0f172a;
+            color: #ffffff;
+        }
+
         .countryWrapper {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -101,7 +113,15 @@
     <main>
         <section>
             <h2>World Countries Explorer</h2>
-            <p class="lead">Search by country name, capital, or language and sort by name.</p>
+            <p class="lead">Search by country name, capital, or language. Filter by category and sort by country, capital, or population.</p>
+            <div class="category-toolbar" id="categoryToolbar">
+                <button type="button" data-region="All" class="active-category">All Regions</button>
+                <button type="button" data-region="Africa">Africa</button>
+                <button type="button" data-region="Americas">Americas</button>
+                <button type="button" data-region="Asia">Asia</button>
+                <button type="button" data-region="Europe">Europe</button>
+                <button type="button" data-region="Oceania">Oceania</button>
+            </div>
             <div class="toolbar">
                 <input id="search" placeholder="Search by name, capital, languages">
                 <button id="name-btn" type="button"><i class="fa-solid fa-arrow-down-a-z"></i> Name</button>
@@ -124,6 +144,10 @@
         const nameBtn = document.getElementById('name-btn')
         const capitalBtn = document.getElementById('capital-btn')
         const populationBtn = document.getElementById('population-btn')
+        const categoryToolbar = document.getElementById('categoryToolbar')
+        const originalCountries = [...countries]
+        let activeRegion = 'All'
+        let searchTerm = ''
         const sortDirection = {
             name: true,
             capital: true,
@@ -174,6 +198,21 @@
             })
         }
 
+        const filterCountriesByRegion = (arr, region) => {
+            if (region === 'All') {
+                return arr
+            }
+            return arr.filter((country) => country.region === region)
+        }
+
+        function applyFilters() {
+            const byRegion = filterCountriesByRegion(originalCountries, activeRegion)
+            const bySearch = filterCountriesWithPattern(byRegion, searchTerm)
+            countries.length = 0
+            countries.push(...bySearch)
+            renderCountries(countries)
+        }
+
         function renderCountries(arr) {
             let templates = ''
             for (const country of arr) {
@@ -194,13 +233,21 @@
         }
 
         updateSortButtons()
-        renderCountries(countries)
+        applyFilters()
 
         const input = document.getElementById('search')
         input.addEventListener('input', (e) => {
-            const searchTerm = e.target.value
-            const filteredCountries = filterCountriesWithPattern(countries, searchTerm)
-            renderCountries(filteredCountries)
+            searchTerm = e.target.value
+            applyFilters()
+        })
+
+        categoryToolbar.addEventListener('click', (event) => {
+            const button = event.target.closest('button[data-region]')
+            if (!button) return
+            activeRegion = button.dataset.region
+            document.querySelectorAll('#categoryToolbar button').forEach((btn) => btn.classList.remove('active-category'))
+            button.classList.add('active-category')
+            applyFilters()
         })
 
         nameBtn.addEventListener('click', () => {

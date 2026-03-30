@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Explorer Project</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="./assets/css/styles.css" rel="stylesheet">
+    <style>
+        .filter-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .category-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .category-buttons button.active-category {
+            background: #0f172a;
+            color: #ffffff;
+        }
+
+        .cat-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.9rem;
+        }
+
+        .cat-card {
+            border: 1px solid #dbe3ee;
+            border-radius: 12px;
+            background: #f8fafc;
+            padding: 1rem;
+        }
+
+        .cat-card h3 {
+            margin-bottom: 0.45rem;
+            font-family: "Space Grotesk", sans-serif;
+        }
+
+        .cat-card p {
+            margin-bottom: 0.35rem;
+            color: #334155;
+            font-size: 0.92rem;
+        }
+
+        @media (max-width: 900px) {
+            .cat-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 640px) {
+            .cat-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header id="banner">
+        <div class="nav-container">
+            <a class="brand" href="./index.html"><i class="fa-solid fa-laptop-code"></i>Web Learning Lab</a>
+            <ul id="menu">
+                <li><a href="./index.html"><i class="fa-solid fa-house"></i>Home</a></li>
+                <li><a href="./pages/projects.html"><i class="fa-solid fa-diagram-project"></i>Projects</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <h2>Cat Explorer</h2>
+            <p class="lead">Search cat breeds and filter by category using the buttons below.</p>
+
+            <div class="filter-row">
+                <input id="search" type="text" placeholder="Search breed, origin, or temperament">
+                <div class="category-buttons" id="categoryButtons">
+                    <button type="button" data-category="All" class="active-category">All</button>
+                    <button type="button" data-category="Short Hair">Short Hair</button>
+                    <button type="button" data-category="Long Hair">Long Hair</button>
+                    <button type="button" data-category="Hairless">Hairless</button>
+                    <button type="button" data-category="Hypoallergenic">Hypoallergenic</button>
+                </div>
+            </div>
+
+            <div class="cat-grid" id="catGrid"></div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <p>Web Learning Lab. Standalone learning material for HTML, CSS, and JavaScript.</p>
+        </div>
+    </footer>
+
+    <script>
+        const cats = [
+            { breed: 'Siamese', origin: 'Thailand', category: 'Short Hair', temperament: 'Social, Vocal', lifeSpan: '12-15 years' },
+            { breed: 'Maine Coon', origin: 'USA', category: 'Long Hair', temperament: 'Gentle, Friendly', lifeSpan: '10-13 years' },
+            { breed: 'Sphynx', origin: 'Canada', category: 'Hairless', temperament: 'Curious, Energetic', lifeSpan: '8-14 years' },
+            { breed: 'Russian Blue', origin: 'Russia', category: 'Short Hair', temperament: 'Quiet, Intelligent', lifeSpan: '15-20 years' },
+            { breed: 'Persian', origin: 'Iran', category: 'Long Hair', temperament: 'Calm, Sweet', lifeSpan: '12-17 years' },
+            { breed: 'Balinese', origin: 'USA', category: 'Hypoallergenic', temperament: 'Playful, Affectionate', lifeSpan: '12-20 years' },
+            { breed: 'Bengal', origin: 'USA', category: 'Short Hair', temperament: 'Active, Confident', lifeSpan: '10-16 years' },
+            { breed: 'Siberian', origin: 'Russia', category: 'Hypoallergenic', temperament: 'Loyal, Agile', lifeSpan: '11-18 years' }
+        ]
+
+        const searchInput = document.getElementById('search')
+        const catGrid = document.getElementById('catGrid')
+        const categoryButtons = document.getElementById('categoryButtons')
+
+        let activeCategory = 'All'
+
+        function renderCats(arr) {
+            catGrid.innerHTML = arr.map((cat) => `
+                <article class="cat-card">
+                    <h3>${cat.breed}</h3>
+                    <p><strong>Origin:</strong> ${cat.origin}</p>
+                    <p><strong>Category:</strong> ${cat.category}</p>
+                    <p><strong>Temperament:</strong> ${cat.temperament}</p>
+                    <p><strong>Life Span:</strong> ${cat.lifeSpan}</p>
+                </article>
+            `).join('')
+        }
+
+        function filterCats() {
+            const term = searchInput.value.trim().toLowerCase()
+            const filtered = cats.filter((cat) => {
+                const matchesCategory = activeCategory === 'All' || cat.category === activeCategory
+                const matchesSearch =
+                    cat.breed.toLowerCase().includes(term) ||
+                    cat.origin.toLowerCase().includes(term) ||
+                    cat.temperament.toLowerCase().includes(term)
+
+                return matchesCategory && matchesSearch
+            })
+            renderCats(filtered)
+        }
+
+        searchInput.addEventListener('input', filterCats)
+
+        categoryButtons.addEventListener('click', (event) => {
+            const button = event.target.closest('button[data-category]')
+            if (!button) return
+
+            activeCategory = button.dataset.category
+            document.querySelectorAll('#categoryButtons button').forEach((btn) => btn.classList.remove('active-category'))
+            button.classList.add('active-category')
+            filterCats()
+        })
+
+        renderCats(cats)
+    </script>
+</body>
+
+</html>

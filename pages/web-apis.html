@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 3 | Web APIs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="../assets/css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <header id="banner">
+        <div class="nav-container">
+            <a class="brand" href="../index.html"><i class="fa-solid fa-laptop-code"></i>Web Learning Lab</a>
+            <ul id="menu">
+                <li><a href="../index.html"><i class="fa-solid fa-house"></i>Home</a></li>
+                <li><a href="./about.html"><i class="fa-brands fa-html5"></i>HTML</a></li>
+                <li><a href="./courses.html"><i class="fa-brands fa-css3-alt"></i>CSS</a></li>
+                <li><a href="./blogs.html"><i class="fa-brands fa-js"></i>JavaScript</a></li>
+                <li class="active"><a href="./responsive-design.html"><i class="fa-solid fa-road"></i>Next Modules</a></li>
+                <li><a href="./projects.html"><i class="fa-solid fa-diagram-project"></i>Projects</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div>
+                <h1>Step 3: Web APIs</h1>
+                <p>Fetch and display live data from external services to build dynamic, real-world web applications.</p>
+            </div>
+            <div class="badge-row">
+                <span class="badge">fetch()</span>
+                <span class="badge">JSON</span>
+                <span class="badge">Async Patterns</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>Key Concepts</h2>
+            <div class="grid">
+                <article class="card">
+                    <h3>Request and Response</h3>
+                    <p>Use fetch() to send requests and parse responses from API endpoints.</p>
+                </article>
+                <article class="card">
+                    <h3>Asynchronous JavaScript</h3>
+                    <p>Use async and await to write cleaner non-blocking data loading logic.</p>
+                </article>
+                <article class="card">
+                    <h3>Error Handling</h3>
+                    <p>Handle network failures and invalid responses with user-friendly messages.</p>
+                </article>
+            </div>
+        </section>
+
+        <section>
+            <h2>Web APIs Quiz</h2>
+            <p class="lead">Complete this final step quiz to validate your understanding.</p>
+            <form class="quiz-form" data-quiz-name="Web APIs">
+                <div class="question">
+                    <p>1. Which function is commonly used to request API data in modern browsers?</p>
+                    <label><input type="radio" name="q1" value="a" data-correct="true"> fetch()</label>
+                    <label><input type="radio" name="q1" value="b"> prompt()</label>
+                    <label><input type="radio" name="q1" value="c"> alert()</label>
+                </div>
+
+                <div class="question">
+                    <p>2. Which format is most commonly returned by web APIs?</p>
+                    <label><input type="radio" name="q2" value="a"> XML only</label>
+                    <label><input type="radio" name="q2" value="b" data-correct="true"> JSON</label>
+                    <label><input type="radio" name="q2" value="c"> PDF</label>
+                </div>
+
+                <div class="question">
+                    <p>3. Why should API calls include error handling?</p>
+                    <label><input type="radio" name="q3" value="a"> To make code longer</label>
+                    <label><input type="radio" name="q3" value="b" data-correct="true"> To handle network and response failures safely</label>
+                    <label><input type="radio" name="q3" value="c"> To disable user input</label>
+                </div>
+
+                <button type="submit">Submit Step 3 Quiz</button>
+                <p class="quiz-result" aria-live="polite"></p>
+            </form>
+            <p style="margin-top: 1rem;"><a href="./projects.html">Apply your skills in the Projects Showcase</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <p>Web Learning Lab. Standalone learning material for HTML, CSS, and JavaScript.</p>
+        </div>
+    </footer>
+
+    <script src="../scripts/quiz-engine.js"></script>
+</body>
+
+</html>
