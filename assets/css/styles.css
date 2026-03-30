@@ -289,6 +289,55 @@ input[type="submit"] {
     gap: 0.85rem;
 }
 
+.quiz-form {
+    display: grid;
+    gap: 1rem;
+}
+
+.question {
+    border: 1px solid #dbe3ee;
+    border-radius: 10px;
+    background: #f8fafc;
+    padding: 1rem;
+}
+
+.question p {
+    font-weight: 700;
+    margin-bottom: 0.7rem;
+}
+
+.question label {
+    display: block;
+    margin-bottom: 0.55rem;
+    color: #334155;
+}
+
+.question input[type="radio"] {
+    width: auto;
+    margin-right: 0.45rem;
+}
+
+.quiz-result {
+    margin-top: 0.3rem;
+    font-weight: 700;
+    border-radius: 10px;
+    padding: 0.7rem 0.9rem;
+    border: 1px solid #e2e8f0;
+    background: #f8fafc;
+}
+
+.quiz-pass {
+    color: #166534;
+    border-color: #bbf7d0;
+    background: #f0fdf4;
+}
+
+.quiz-try-again {
+    color: #9a3412;
+    border-color: #fed7aa;
+    background: #fff7ed;
+}
+
 .social-links {
     margin-top: 0.7rem;
     display: flex;

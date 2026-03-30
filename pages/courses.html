@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Courses | Web Development 2026</title>
+    <title>CSS Learning Module</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
@@ -15,59 +15,102 @@
 <body>
     <header id="banner">
         <div class="nav-container">
-            <a class="brand" href="../index.html"><i class="fa-solid fa-code"></i>WebDev 2026</a>
+            <a class="brand" href="../index.html"><i class="fa-solid fa-laptop-code"></i>Web Learning Lab</a>
             <ul id="menu">
                 <li><a href="../index.html"><i class="fa-solid fa-house"></i>Home</a></li>
-                <li><a href="./about.html"><i class="fa-solid fa-circle-info"></i>About</a></li>
-                <li class="active"><a href="./courses.html"><i class="fa-solid fa-graduation-cap"></i>Courses</a></li>
-                <li><a href="./blogs.html"><i class="fa-solid fa-newspaper"></i>Blogs</a></li>
-                <li><a href="./projects.html"><i class="fa-solid fa-diagram-project"></i>Projects</a></li>
-                <li><a href="./contacts.html"><i class="fa-solid fa-envelope"></i>Contacts</a></li>
+                <li><a href="./about.html"><i class="fa-brands fa-html5"></i>HTML</a></li>
+                <li class="active"><a href="./courses.html"><i class="fa-brands fa-css3-alt"></i>CSS</a></li>
+                <li><a href="./blogs.html"><i class="fa-brands fa-js"></i>JavaScript</a></li>
             </ul>
         </div>
     </header>
 
     <main>
+        <section class="hero">
+            <div>
+                <h1>CSS Fundamentals</h1>
+                <p>
+                    CSS controls visual design. You use it to style typography, spacing, colors, layout systems,
+                    animations, and responsive behavior across devices.
+                </p>
+            </div>
+            <div class="badge-row">
+                <span class="badge">Selectors</span>
+                <span class="badge">Layouts</span>
+                <span class="badge">Responsive UI</span>
+            </div>
+        </section>
+
         <section>
-            <h2>Learning Tracks</h2>
-            <p class="lead">Choose a route based on your current level and career direction.</p>
+            <h2>Key Concepts</h2>
             <div class="grid">
                 <article class="card">
-                    <i class="fa-solid fa-seedling"></i>
-                    <h3>Starter Program</h3>
-                    <p>Ideal for beginners who need a strong base in HTML, CSS, and JavaScript essentials.</p>
+                    <h3>Selectors and Specificity</h3>
+                    <p>Choose elements precisely and understand which rules override others.</p>
                 </article>
                 <article class="card">
-                    <i class="fa-solid fa-laptop-code"></i>
-                    <h3>Frontend Professional</h3>
-                    <p>Build production-quality interfaces, responsive systems, and reusable component libraries.</p>
+                    <h3>Box Model</h3>
+                    <p>Every element has content, padding, border, and margin that affect layout size.</p>
                 </article>
                 <article class="card">
-                    <i class="fa-solid fa-rocket"></i>
-                    <h3>Career Accelerator</h3>
-                    <p>Portfolio reviews, project coaching, and interview readiness for real-world opportunities.</p>
+                    <h3>Flexbox and Grid</h3>
+                    <p>Use modern layout tools to align, distribute, and arrange content responsively.</p>
                 </article>
             </div>
         </section>
 
         <section>
-            <h2>Course Topics</h2>
-            <ul class="inline-list">
-                <li>Semantic HTML and Accessibility</li>
-                <li>Modern CSS Layouts</li>
-                <li>JavaScript Problem Solving</li>
-                <li>DOM and Events</li>
-                <li>Async APIs</li>
-                <li>Git Collaboration</li>
-            </ul>
+            <h2>CSS Quiz</h2>
+            <p class="lead">Answer all questions and click submit to see your score.</p>
+            <form class="quiz-form" data-quiz-name="CSS">
+                <div class="question">
+                    <p>1. Which property changes text color?</p>
+                    <label><input type="radio" name="q1" value="a" data-correct="true"> color</label>
+                    <label><input type="radio" name="q1" value="b"> font-style</label>
+                    <label><input type="radio" name="q1" value="c"> background-image</label>
+                </div>
+
+                <div class="question">
+                    <p>2. Which layout system is one-dimensional?</p>
+                    <label><input type="radio" name="q2" value="a"> CSS Grid</label>
+                    <label><input type="radio" name="q2" value="b" data-correct="true"> Flexbox</label>
+                    <label><input type="radio" name="q2" value="c"> Position absolute</label>
+                </div>
+
+                <div class="question">
+                    <p>3. In the box model, what sits outside the border?</p>
+                    <label><input type="radio" name="q3" value="a" data-correct="true"> margin</label>
+                    <label><input type="radio" name="q3" value="b"> padding</label>
+                    <label><input type="radio" name="q3" value="c"> content</label>
+                </div>
+
+                <div class="question">
+                    <p>4. Which media query target is best for small screens?</p>
+                    <label><input type="radio" name="q4" value="a"> min-width: 2000px</label>
+                    <label><input type="radio" name="q4" value="b" data-correct="true"> max-width: 640px</label>
+                    <label><input type="radio" name="q4" value="c"> orientation: landscape only</label>
+                </div>
+
+                <div class="question">
+                    <p>5. Which unit scales based on root font size?</p>
+                    <label><input type="radio" name="q5" value="a"> px</label>
+                    <label><input type="radio" name="q5" value="b" data-correct="true"> rem</label>
+                    <label><input type="radio" name="q5" value="c"> %</label>
+                </div>
+
+                <button type="submit">Submit CSS Quiz</button>
+                <p class="quiz-result" aria-live="polite"></p>
+            </form>
         </section>
     </main>
 
     <footer>
         <div class="footer-inner">
-            <p>Web Development 2026 by Asabeneh. All rights reserved.</p>
+            <p>Web Learning Lab. Standalone learning material for HTML, CSS, and JavaScript.</p>
         </div>
     </footer>
+
+    <script src="../scripts/quiz-engine.js"></script>
 </body>
 
 </html>

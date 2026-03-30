@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacts | Web Development 2026</title>
+    <title>Study Planner</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
@@ -15,61 +15,41 @@
 <body>
     <header id="banner">
         <div class="nav-container">
-            <a class="brand" href="../index.html"><i class="fa-solid fa-code"></i>WebDev 2026</a>
+            <a class="brand" href="../index.html"><i class="fa-solid fa-laptop-code"></i>Web Learning Lab</a>
             <ul id="menu">
                 <li><a href="../index.html"><i class="fa-solid fa-house"></i>Home</a></li>
-                <li><a href="./about.html"><i class="fa-solid fa-circle-info"></i>About</a></li>
-                <li><a href="./courses.html"><i class="fa-solid fa-graduation-cap"></i>Courses</a></li>
-                <li><a href="./blogs.html"><i class="fa-solid fa-newspaper"></i>Blogs</a></li>
-                <li><a href="./projects.html"><i class="fa-solid fa-diagram-project"></i>Projects</a></li>
-                <li class="active"><a href="./contacts.html"><i class="fa-solid fa-envelope"></i>Contacts</a></li>
+                <li><a href="./about.html"><i class="fa-brands fa-html5"></i>HTML</a></li>
+                <li><a href="./courses.html"><i class="fa-brands fa-css3-alt"></i>CSS</a></li>
+                <li><a href="./blogs.html"><i class="fa-brands fa-js"></i>JavaScript</a></li>
+                <li class="active"><a href="./contacts.html"><i class="fa-solid fa-calendar-check"></i>Study Planner</a></li>
             </ul>
         </div>
     </header>
 
     <main>
         <section>
-            <h2>Contact Us</h2>
-            <p class="lead">Send us a message and we will respond with the best learning plan for your goal.</p>
-            <form>
-                <div class="form-grid">
-                    <div>
-                        <label for="firstName">First Name</label>
-                        <input type="text" id="firstName" placeholder="Your first name">
-                    </div>
-                    <div>
-                        <label for="lastName">Last Name</label>
-                        <input type="text" id="lastName" placeholder="Your last name">
-                    </div>
-                </div>
-                <div class="form-grid">
-                    <div>
-                        <label for="email">Email</label>
-                        <input type="email" id="email" placeholder="you@example.com">
-                    </div>
-                    <div>
-                        <label for="interest">Topic</label>
-                        <select id="interest">
-                            <option value="courses">Courses</option>
-                            <option value="projects">Projects</option>
-                            <option value="mentorship">Mentorship</option>
-                        </select>
-                    </div>
-                </div>
-                <div>
-                    <label for="message">Message</label>
-                    <textarea id="message" placeholder="Write your message..."></textarea>
-                </div>
-                <div>
-                    <input type="submit" value="Send Message">
-                </div>
-            </form>
+            <h2>Weekly Study Planner</h2>
+            <p class="lead">Use this template to keep your momentum while learning web development.</p>
+            <div class="grid">
+                <article class="card">
+                    <h3>Day 1-2</h3>
+                    <p>Learn HTML module, take the quiz, and write one semantic page from scratch.</p>
+                </article>
+                <article class="card">
+                    <h3>Day 3-4</h3>
+                    <p>Study CSS module, style the HTML page, and make it responsive.</p>
+                </article>
+                <article class="card">
+                    <h3>Day 5-7</h3>
+                    <p>Complete JavaScript module and add interactive behavior to your project.</p>
+                </article>
+            </div>
         </section>
     </main>
 
     <footer>
         <div class="footer-inner">
-            <p>Web Development 2026 by Asabeneh. All rights reserved.</p>
+            <p>Web Learning Lab. Standalone learning material for HTML, CSS, and JavaScript.</p>
         </div>
     </footer>
 </body>

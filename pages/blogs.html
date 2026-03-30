@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blogs | Web Development 2026</title>
+    <title>JavaScript Learning Module</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
@@ -15,47 +15,102 @@
 <body>
     <header id="banner">
         <div class="nav-container">
-            <a class="brand" href="../index.html"><i class="fa-solid fa-code"></i>WebDev 2026</a>
+            <a class="brand" href="../index.html"><i class="fa-solid fa-laptop-code"></i>Web Learning Lab</a>
             <ul id="menu">
                 <li><a href="../index.html"><i class="fa-solid fa-house"></i>Home</a></li>
-                <li><a href="./about.html"><i class="fa-solid fa-circle-info"></i>About</a></li>
-                <li><a href="./courses.html"><i class="fa-solid fa-graduation-cap"></i>Courses</a></li>
-                <li class="active"><a href="./blogs.html"><i class="fa-solid fa-newspaper"></i>Blogs</a></li>
-                <li><a href="./projects.html"><i class="fa-solid fa-diagram-project"></i>Projects</a></li>
-                <li><a href="./contacts.html"><i class="fa-solid fa-envelope"></i>Contacts</a></li>
+                <li><a href="./about.html"><i class="fa-brands fa-html5"></i>HTML</a></li>
+                <li><a href="./courses.html"><i class="fa-brands fa-css3-alt"></i>CSS</a></li>
+                <li class="active"><a href="./blogs.html"><i class="fa-brands fa-js"></i>JavaScript</a></li>
             </ul>
         </div>
     </header>
 
     <main>
+        <section class="hero">
+            <div>
+                <h1>JavaScript Fundamentals</h1>
+                <p>
+                    JavaScript brings webpages to life. You can update the DOM, respond to user actions, process data,
+                    and connect with external APIs.
+                </p>
+            </div>
+            <div class="badge-row">
+                <span class="badge">Logic</span>
+                <span class="badge">DOM</span>
+                <span class="badge">Events</span>
+            </div>
+        </section>
+
         <section>
-            <h2>Latest Insights</h2>
-            <p class="lead">Short reads focused on coding habits, project quality, and modern frontend workflows.</p>
+            <h2>Key Concepts</h2>
             <div class="grid">
                 <article class="card">
-                    <i class="fa-solid fa-pen-nib"></i>
-                    <h3>How to Build Better Projects</h3>
-                    <p>Start with clear scope, user goals, and polished UI details to stand out professionally.</p>
+                    <h3>Variables and Data Types</h3>
+                    <p>Store and update values using let and const for strings, numbers, arrays, and objects.</p>
                 </article>
                 <article class="card">
-                    <i class="fa-solid fa-terminal"></i>
-                    <h3>Developer Productivity Habits</h3>
-                    <p>Learn practical routines that improve consistency, code quality, and delivery speed.</p>
+                    <h3>Functions</h3>
+                    <p>Encapsulate reusable logic and call it with different inputs.</p>
                 </article>
                 <article class="card">
-                    <i class="fa-solid fa-wand-magic-sparkles"></i>
-                    <h3>Designing Interfaces Users Trust</h3>
-                    <p>Use spacing, hierarchy, and copywriting to make products feel reliable and easy to use.</p>
+                    <h3>DOM and Events</h3>
+                    <p>Select elements, update content, and react to clicks, typing, and form submissions.</p>
                 </article>
             </div>
+        </section>
+
+        <section>
+            <h2>JavaScript Quiz</h2>
+            <p class="lead">Answer all questions and click submit to see your score.</p>
+            <form class="quiz-form" data-quiz-name="JavaScript">
+                <div class="question">
+                    <p>1. Which keyword creates a block-scoped variable?</p>
+                    <label><input type="radio" name="q1" value="a" data-correct="true"> let</label>
+                    <label><input type="radio" name="q1" value="b"> var only</label>
+                    <label><input type="radio" name="q1" value="c"> define</label>
+                </div>
+
+                <div class="question">
+                    <p>2. What does DOM stand for?</p>
+                    <label><input type="radio" name="q2" value="a"> Data Object Model</label>
+                    <label><input type="radio" name="q2" value="b" data-correct="true"> Document Object Model</label>
+                    <label><input type="radio" name="q2" value="c"> Dynamic Output Method</label>
+                </div>
+
+                <div class="question">
+                    <p>3. Which method selects an element by id?</p>
+                    <label><input type="radio" name="q3" value="a"> queryElements</label>
+                    <label><input type="radio" name="q3" value="b" data-correct="true"> getElementById</label>
+                    <label><input type="radio" name="q3" value="c"> selectById</label>
+                </div>
+
+                <div class="question">
+                    <p>4. Which event fires when a button is pressed?</p>
+                    <label><input type="radio" name="q4" value="a" data-correct="true"> click</label>
+                    <label><input type="radio" name="q4" value="b"> hover</label>
+                    <label><input type="radio" name="q4" value="c"> loadend</label>
+                </div>
+
+                <div class="question">
+                    <p>5. Which array method creates a new array of transformed values?</p>
+                    <label><input type="radio" name="q5" value="a" data-correct="true"> map</label>
+                    <label><input type="radio" name="q5" value="b"> forEach</label>
+                    <label><input type="radio" name="q5" value="c"> push</label>
+                </div>
+
+                <button type="submit">Submit JavaScript Quiz</button>
+                <p class="quiz-result" aria-live="polite"></p>
+            </form>
         </section>
     </main>
 
     <footer>
         <div class="footer-inner">
-            <p>Web Development 2026 by Asabeneh. All rights reserved.</p>
+            <p>Web Learning Lab. Standalone learning material for HTML, CSS, and JavaScript.</p>
         </div>
     </footer>
+
+    <script src="../scripts/quiz-engine.js"></script>
 </body>
 
 </html>
