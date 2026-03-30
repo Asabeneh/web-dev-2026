@@ -4,18 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cat Explorer Project</title>
+    <title>Cat Paradise Project</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link href="./assets/css/styles.css" rel="stylesheet">
     <style>
-        .filter-row {
+        .top-tools {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 0.8rem;
+            gap: 0.9rem;
             margin-bottom: 1rem;
+        }
+
+        .cat-meta {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 0.6rem;
+            margin-bottom: 0.8rem;
+            color: #475569;
+            font-weight: 600;
         }
 
         .category-buttons {
@@ -39,7 +49,21 @@
             border: 1px solid #dbe3ee;
             border-radius: 12px;
             background: #f8fafc;
-            padding: 1rem;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cat-image {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            background: #e2e8f0;
+            border-bottom: 1px solid #dbe3ee;
+        }
+
+        .cat-card-content {
+            padding: 0.95rem;
         }
 
         .cat-card h3 {
@@ -50,7 +74,13 @@
         .cat-card p {
             margin-bottom: 0.35rem;
             color: #334155;
-            font-size: 0.92rem;
+            font-size: 0.9rem;
+        }
+
+        .status {
+            color: #475569;
+            font-weight: 600;
+            margin-top: 0.7rem;
         }
 
         @media (max-width: 900px) {
@@ -80,21 +110,27 @@
 
     <main>
         <section>
-            <h2>Cat Explorer</h2>
-            <p class="lead">Search cat breeds and filter by category using the buttons below.</p>
+            <h2>Cat Paradise</h2>
+            <p class="lead">Explore all cat breeds as cards with image and detailed information. Use search and category filters.</p>
 
-            <div class="filter-row">
-                <input id="search" type="text" placeholder="Search breed, origin, or temperament">
+            <div class="cat-meta">
+                <span id="totalCount">Total Breeds: 0</span>
+                <span id="visibleCount">Showing: 0</span>
+            </div>
+
+            <div class="top-tools">
+                <input id="search" type="text" placeholder="Search by breed, origin, temperament, or life span">
                 <div class="category-buttons" id="categoryButtons">
                     <button type="button" data-category="All" class="active-category">All</button>
-                    <button type="button" data-category="Short Hair">Short Hair</button>
-                    <button type="button" data-category="Long Hair">Long Hair</button>
                     <button type="button" data-category="Hairless">Hairless</button>
                     <button type="button" data-category="Hypoallergenic">Hypoallergenic</button>
+                    <button type="button" data-category="Rare">Rare</button>
+                    <button type="button" data-category="Popular">Popular</button>
                 </div>
             </div>
 
             <div class="cat-grid" id="catGrid"></div>
+            <p id="status" class="status"></p>
         </section>
     </main>
 
@@ -105,50 +141,88 @@
     </footer>
 
     <script>
-        const cats = [
-            { breed: 'Siamese', origin: 'Thailand', category: 'Short Hair', temperament: 'Social, Vocal', lifeSpan: '12-15 years' },
-            { breed: 'Maine Coon', origin: 'USA', category: 'Long Hair', temperament: 'Gentle, Friendly', lifeSpan: '10-13 years' },
-            { breed: 'Sphynx', origin: 'Canada', category: 'Hairless', temperament: 'Curious, Energetic', lifeSpan: '8-14 years' },
-            { breed: 'Russian Blue', origin: 'Russia', category: 'Short Hair', temperament: 'Quiet, Intelligent', lifeSpan: '15-20 years' },
-            { breed: 'Persian', origin: 'Iran', category: 'Long Hair', temperament: 'Calm, Sweet', lifeSpan: '12-17 years' },
-            { breed: 'Balinese', origin: 'USA', category: 'Hypoallergenic', temperament: 'Playful, Affectionate', lifeSpan: '12-20 years' },
-            { breed: 'Bengal', origin: 'USA', category: 'Short Hair', temperament: 'Active, Confident', lifeSpan: '10-16 years' },
-            { breed: 'Siberian', origin: 'Russia', category: 'Hypoallergenic', temperament: 'Loyal, Agile', lifeSpan: '11-18 years' }
-        ]
-
         const searchInput = document.getElementById('search')
         const catGrid = document.getElementById('catGrid')
         const categoryButtons = document.getElementById('categoryButtons')
+        const totalCount = document.getElementById('totalCount')
+        const visibleCount = document.getElementById('visibleCount')
+        const status = document.getElementById('status')
 
+        let allCats = []
         let activeCategory = 'All'
+        let searchTerm = ''
 
-        function renderCats(arr) {
-            catGrid.innerHTML = arr.map((cat) => `
+        function getCategory(cat) {
+            if (cat.hairless === 1) return 'Hairless'
+            if (cat.hypoallergenic === 1) return 'Hypoallergenic'
+            if (cat.rare === 1) return 'Rare'
+            return 'Popular'
+        }
+
+        function getImageUrl(cat) {
+            if (cat.image && cat.image.url) return cat.image.url
+            if (cat.reference_image_id) return `https://cdn2.thecatapi.com/images/${cat.reference_image_id}.jpg`
+            return 'https://placehold.co/640x420/e2e8f0/334155?text=Cat+Image'
+        }
+
+        function renderCats(cats) {
+            catGrid.innerHTML = cats.map((cat) => `
                 <article class="cat-card">
-                    <h3>${cat.breed}</h3>
-                    <p><strong>Origin:</strong> ${cat.origin}</p>
-                    <p><strong>Category:</strong> ${cat.category}</p>
-                    <p><strong>Temperament:</strong> ${cat.temperament}</p>
-                    <p><strong>Life Span:</strong> ${cat.lifeSpan}</p>
+                    <img class="cat-image" src="${getImageUrl(cat)}" alt="${cat.name}">
+                    <div class="cat-card-content">
+                        <h3>${cat.name}</h3>
+                        <p><strong>Origin:</strong> ${cat.origin || 'N/A'}</p>
+                        <p><strong>Category:</strong> ${getCategory(cat)}</p>
+                        <p><strong>Temperament:</strong> ${cat.temperament || 'N/A'}</p>
+                        <p><strong>Life Span:</strong> ${cat.life_span || 'N/A'} years</p>
+                        <p><strong>Weight:</strong> ${cat.weight?.metric || 'N/A'} kg</p>
+                        <p><strong>Description:</strong> ${cat.description || 'N/A'}</p>
+                    </div>
                 </article>
             `).join('')
         }
 
         function filterCats() {
-            const term = searchInput.value.trim().toLowerCase()
-            const filtered = cats.filter((cat) => {
-                const matchesCategory = activeCategory === 'All' || cat.category === activeCategory
-                const matchesSearch =
-                    cat.breed.toLowerCase().includes(term) ||
-                    cat.origin.toLowerCase().includes(term) ||
-                    cat.temperament.toLowerCase().includes(term)
-
-                return matchesCategory && matchesSearch
+            const filtered = allCats.filter((cat) => {
+                const category = getCategory(cat)
+                const matchCategory = activeCategory === 'All' || category === activeCategory
+                const text = `${cat.name} ${cat.origin} ${cat.temperament} ${cat.life_span}`.toLowerCase()
+                const matchSearch = text.includes(searchTerm.toLowerCase())
+                return matchCategory && matchSearch
             })
+
             renderCats(filtered)
+            visibleCount.textContent = `Showing: ${filtered.length}`
+
+            if (filtered.length === 0) {
+                status.textContent = 'No cats matched your filter. Try a different search or category.'
+            } else {
+                status.textContent = ''
+            }
         }
 
-        searchInput.addEventListener('input', filterCats)
+        async function loadCats() {
+            status.textContent = 'Loading all cat breeds...'
+            try {
+                const response = await fetch('https://api.thecatapi.com/v1/breeds')
+                if (!response.ok) throw new Error('Failed to load cat breeds')
+
+                const data = await response.json()
+                allCats = data
+
+                totalCount.textContent = `Total Breeds: ${allCats.length}`
+                filterCats()
+                status.textContent = ''
+            } catch (error) {
+                status.textContent = 'Could not load cat data right now. Please refresh and try again.'
+                console.error(error)
+            }
+        }
+
+        searchInput.addEventListener('input', (event) => {
+            searchTerm = event.target.value
+            filterCats()
+        })
 
         categoryButtons.addEventListener('click', (event) => {
             const button = event.target.closest('button[data-category]')
@@ -160,7 +234,7 @@
             filterCats()
         })
 
-        renderCats(cats)
+        loadCats()
     </script>
 </body>
 
