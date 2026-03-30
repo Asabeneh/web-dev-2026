@@ -5,116 +5,172 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>World Countries Data</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="./assets/css/styles.css" rel="stylesheet">
     <style>
+        .toolbar {
+            display: grid;
+            grid-template-columns: 1fr auto auto auto;
+            gap: 0.7rem;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
         .countryWrapper {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.9rem;
         }
 
         .country {
-            width: 300px;
-            border: 2px solid rgb(245, 239, 239);
-            margin: 10px;
-            padding: 20px;
+            border: 1px solid #dbe3ee;
+            border-radius: 12px;
+            padding: 1rem;
+            background: #f8fafc;
+        }
+
+        .flag {
+            display: block;
+            width: 100%;
+            max-height: 120px;
+            object-fit: contain;
+            margin-bottom: 0.8rem;
+            border-radius: 8px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            padding: 0.4rem;
         }
 
         .name {
-            text-align: center;
-            text-transform: uppercase;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 1.05rem;
+            margin-bottom: 0.55rem;
         }
 
-        img {
-            display: block;
-            max-width: 35%;
-            text-align: center;
-            margin: auto;
+        .country-details p {
+            font-size: 0.9rem;
+            margin-bottom: 0.35rem;
+            color: #334155;
         }
 
-        input {
-            display: block;
-            padding: 15px;
-            width: 80%;
-            margin: auto;
+        .toolbar button {
+            white-space: nowrap;
+        }
+
+        @media (max-width: 900px) {
+            .countryWrapper {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .toolbar {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .countryWrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .toolbar {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
-
 </head>
 
 <body>
-    <h1>World Countries Data</h1>
-    <input id="search" placeholder="Search by name, capital, languages" />
-    <button id="name-btn">Name</button>
-    <button id="capital-btn">Capital</button>
-    <button id="population-btn">Population</button>
-    <!-- <button id="search">bUTTON</button> -->
+    <header id="banner">
+        <div class="nav-container">
+            <a class="brand" href="./index.html"><i class="fa-solid fa-code"></i>WebDev 2026</a>
+            <ul id="menu">
+                <li><a href="./index.html"><i class="fa-solid fa-house"></i>Home</a></li>
+                <li><a href="./pages/projects.html"><i class="fa-solid fa-diagram-project"></i>Projects</a></li>
+            </ul>
+        </div>
+    </header>
 
+    <main>
+        <section>
+            <h2>World Countries Explorer</h2>
+            <p class="lead">Search by country name, capital, or language and sort by name.</p>
+            <div class="toolbar">
+                <input id="search" placeholder="Search by name, capital, languages">
+                <button id="name-btn" type="button"><i class="fa-solid fa-arrow-down-a-z"></i> Name</button>
+                <button id="capital-btn" type="button"><i class="fa-solid fa-city"></i> Capital</button>
+                <button id="population-btn" type="button"><i class="fa-solid fa-users"></i> Population</button>
+            </div>
+            <div class="countryWrapper" id="countryWrapper"></div>
+        </section>
+    </main>
 
+    <footer>
+        <div class="footer-inner">
+            <p>Web Development 2026 by Asabeneh. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script src="./countries-info.js"></script>
     <script>
-        // console.log(countries)
-         let countryWrapper = document.createElement('div')
-            countryWrapper.className = 'countryWrapper'
-
+        const countryWrapper = document.getElementById('countryWrapper')
         const nameBtn = document.getElementById('name-btn')
         const capitalBtn = document.getElementById('capital-btn')
-        const population = document.getElementById('population-btn')
+        const populationBtn = document.getElementById('population-btn')
 
-     
-
-
-
-
-        const filterCountrisWithPattern = (arr, pattern) =>  {
+        const filterCountriesWithPattern = (arr, pattern) => {
             return arr.filter((country) => {
-                 let name =  country.name.toLowerCase().includes(pattern.toLowerCase())
-                 let capital = country.capital?.toLowerCase().includes(pattern.toLowerCase())
-                 let languages = country.languages.join(', ').toLowerCase().includes(pattern.toLowerCase())
+                const name = country.name.toLowerCase().includes(pattern.toLowerCase())
+                const capital = country.capital?.toLowerCase().includes(pattern.toLowerCase())
+                const languages = country.languages.join(', ').toLowerCase().includes(pattern.toLowerCase())
                 return name || capital || languages
             })
         }
 
-           // console.log(filterCountrisWithPattern(countries, 'land'))
-
         function renderCountries(arr) {
             let templates = ''
-            for (let country of arr) {
-                let languages = country.languages
-                let template = `
-        <div class="country">
-            <img class='flag' src="${country.flag}" alt="">
-            <h2 class="name">${country.name}</h2>
-            <div class='country-details'>
-               <h3>Capital:${country.capital}</h3>
-               <h3>Population:${country.population}</h3>
-               <h3>Languages:${languages}</h3>
-            </div>
-        </div>`
+            for (const country of arr) {
+                const languages = country.languages.join(', ')
+                const template = `
+                    <div class="country">
+                        <img class="flag" src="${country.flag}" alt="${country.name} flag">
+                        <h3 class="name">${country.name}</h3>
+                        <div class="country-details">
+                            <p><strong>Capital:</strong> ${country.capital || 'N/A'}</p>
+                            <p><strong>Population:</strong> ${country.population.toLocaleString()}</p>
+                            <p><strong>Languages:</strong> ${languages}</p>
+                        </div>
+                    </div>`
                 templates += template
-
             }
             countryWrapper.innerHTML = templates
-            document.body.appendChild(countryWrapper)
         }
 
-renderCountries(countries)
-        
-        let input = document.getElementById('search')
+        renderCountries(countries)
+
+        const input = document.getElementById('search')
         input.addEventListener('input', (e) => {
-            countryWrapper.innerHTML = ''
-            let searchTerm = e.target.value
-            const filteredCountries = filterCountrisWithPattern(countries, searchTerm)
-            // console.log(filteredCountries)
+            const searchTerm = e.target.value
+            const filteredCountries = filterCountriesWithPattern(countries, searchTerm)
             renderCountries(filteredCountries)
-
         })
 
-           nameBtn.addEventListener('click', () => {
-            countries.reverse()
+        nameBtn.addEventListener('click', () => {
+            countries.sort((a, b) => a.name.localeCompare(b.name))
             renderCountries(countries)
-
         })
 
+        capitalBtn.addEventListener('click', () => {
+            countries.sort((a, b) => (a.capital || '').localeCompare(b.capital || ''))
+            renderCountries(countries)
+        })
+
+        populationBtn.addEventListener('click', () => {
+            countries.sort((a, b) => b.population - a.population)
+            renderCountries(countries)
+        })
     </script>
 </body>
 

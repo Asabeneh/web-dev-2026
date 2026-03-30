@@ -1,64 +1,64 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 
 <head>
-    <title>Web Development with AI</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Web Development 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lobster&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Playwrite+NZ+Basic:wght@100..400&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
-
-    <link href="../assets/css/styles.css" rel="stylesheet" />
-
-
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="../assets/css/styles.css" rel="stylesheet">
 </head>
 
 <body>
     <header id="banner">
-        <ul id="menu">
-            <li>
-                <a href="../index.html">Home</a>
-            </li>
-            <li>
-                <a href="./about.html">About</a>
-            </li>
-            <li><a href="./courses.html">Courses</a></li>
-            <li class="active">
-                <a href="./blogs.html">Blogs</a>
-            </li>
-            <li>
-                <a href="./contacts.html">Contacts</a>
-            </li>
-            <li>
-                <a href="/projects">Projects</a>
-            </li>
-        </ul>
-
+        <div class="nav-container">
+            <a class="brand" href="../index.html"><i class="fa-solid fa-code"></i>WebDev 2026</a>
+            <ul id="menu">
+                <li><a href="../index.html"><i class="fa-solid fa-house"></i>Home</a></li>
+                <li><a href="./about.html"><i class="fa-solid fa-circle-info"></i>About</a></li>
+                <li><a href="./courses.html"><i class="fa-solid fa-graduation-cap"></i>Courses</a></li>
+                <li><a href="./blogs.html"><i class="fa-solid fa-newspaper"></i>Blogs</a></li>
+                <li class="active"><a href="./projects.html"><i class="fa-solid fa-diagram-project"></i>Projects</a></li>
+                <li><a href="./contacts.html"><i class="fa-solid fa-envelope"></i>Contacts</a></li>
+            </ul>
+        </div>
     </header>
 
     <main>
         <section>
-            <h2>Projects</h2>
-            <article>
-                <h3>Countries Info</h3>
-                <ul>
-                    <li> <a href="../countries.html">Countries List</a></li>
-                    <a href="../countries-info.html">World Countries Info</a>
-
-
-                </ul>
-            </article>
+            <h2>Project Showcase</h2>
+            <p class="lead">Explore practical mini-projects used in our learning sessions.</p>
+            <div class="grid">
+                <article class="card">
+                    <i class="fa-solid fa-earth-africa"></i>
+                    <h3>Countries List</h3>
+                    <p>Browse countries dynamically with JavaScript generated UI cards.</p>
+                    <p><a href="../countries.html">Open Countries List</a></p>
+                </article>
+                <article class="card">
+                    <i class="fa-solid fa-globe"></i>
+                    <h3>World Countries Data</h3>
+                    <p>Search and explore country details by name, capital, and language filters.</p>
+                    <p><a href="../countries-info.html">Open World Countries Data</a></p>
+                </article>
+                <article class="card">
+                    <i class="fa-solid fa-hashtag"></i>
+                    <h3>DOM Number Board</h3>
+                    <p>Visualize number patterns and prime detection with dynamic DOM rendering.</p>
+                    <p><a href="../DOM.html">Open DOM Board</a></p>
+                </article>
+            </div>
         </section>
-
-
     </main>
 
     <footer>
-        <p>Web Development 2026 by Asabeneh Copy Right &copy; 2026</p>
+        <div class="footer-inner">
+            <p>Web Development 2026 by Asabeneh. All rights reserved.</p>
+        </div>
     </footer>
-
 </body>
 
 </html>

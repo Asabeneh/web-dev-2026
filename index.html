@@ -1,624 +1,146 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 
 <head>
-    <title>Web Development with AI</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lobster&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Playwrite+NZ+Basic:wght@100..400&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
-
-    <link href="./assets/css/styles.css" rel="stylesheet" />
-    <!-- <style>
-        /* 
-        top
-        bottom
-        left
-        right
-        */
-
-        #sea {
-            position: relative;
-            background-color: lightblue;
-            width:600px;
-            height: 600px;
-        }
-        .boat {
-            width: 100px;
-            height: 100px;
-            position:absolute;
-            font-size: 28px; 
-            font-weight: bolder;
-            line-height: 100px;
-            transition: width 2s;
-        }
-
-        .boat:hover {
-            width: 150px;
-        }
-       
-            .boat1 {
-            background-color: green;
-   
-       
-        }
-            .boat2 {
-            background-color: yellow;
-            top:25px;
-            left:25px;
-       
-        
-    
-        }
-            .boat3 {
-            background-color: red;
-            top:50px;
-            left:50px;
-     
-       
-        }
-         .boat4 {
-            background-color: blue;
-            top:75px;
-            left:75px;
-            
-        }
-    </style> -->
-
-    <!--
-Blocking elements takes the entire width
-No-blocking element only takes the space that the content needs and width, height of no-blocking element cannot be changed without changing the display property
-
-    -->
-
-
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="./assets/css/styles.css" rel="stylesheet">
 </head>
 
 <body>
     <header id="banner">
-
-        <i class="fa-solid fa-house"></i>
-        <ul id="menu">
-            <li class="active">
-                <a href="./index.html"> Home</a>
-            </li>
-            <li>
-                <a href="./pages/about.html"> About</a>
-            </li>
-            <li><a href="./pages/courses.html">Courses</a></li>
-            <li>
-                <a href="./pages/blogs.html">Blogs</a>
-            </li>
-            <li>
-                <a href="./pages/contacts.html">Contacts</a>
-            </li>
-             <li>
-                <a href="./pages/projects.html">Projects</a>
-            </li>
-        </ul>
-
+        <div class="nav-container">
+            <a class="brand" href="./index.html"><i class="fa-solid fa-code"></i>WebDev 2026</a>
+            <ul id="menu">
+                <li class="active"><a href="./index.html"><i class="fa-solid fa-house"></i>Home</a></li>
+                <li><a href="./pages/about.html"><i class="fa-solid fa-circle-info"></i>About</a></li>
+                <li><a href="./pages/courses.html"><i class="fa-solid fa-graduation-cap"></i>Courses</a></li>
+                <li><a href="./pages/blogs.html"><i class="fa-solid fa-newspaper"></i>Blogs</a></li>
+                <li><a href="./pages/projects.html"><i class="fa-solid fa-diagram-project"></i>Projects</a></li>
+                <li><a href="./pages/contacts.html"><i class="fa-solid fa-envelope"></i>Contacts</a></li>
+            </ul>
+        </div>
     </header>
 
-
-
     <main>
-        <!-- <div id="sea">
-
-        <div class="boat boat1">Boat 1</div>
-        <div class="boat boat2">Boat 2</div>
-        <div class="boat boat3">Boat 3</div>
-        <div class="boat boat4">Boat 4</div>
-    </div> -->
-        <section>
-            <h2>Block and non-blocking elements</h2>
-            <br />
-            <div class="box" id="box-1">1</div>
-            <div class="box" id="box-2">2</div>
-            <div class="box" id="box-3">3</div>
-        </section>
-        <section>
-            <h2>Frontend Web Development</h2>
-            <article>
-                <ul>
-                    <li>HTML</li>
-                    <li>CSS</li>
-                    <li>JavaScript</li>
-                    <li>Bootstrap</li>
-                </ul>
-                <!--
-<h3>Sub sub sub title</h3>
-<h4>Sub sub sub sub title</h4>
-<h5>Sub sub sub sub sub title</h5>
-<h6>Sub sub sub sub sub sub title</h6>
--->
-
-
-                <!-- anything in here will not be displayed in your website, because it is a comment -->
-
-                <p>If you like to become a web developer follow this stpes:</p>
-                <ol>
-                    <li>First learn HTML very well</li>
-                    <li>Then apply CSS on your website</li>
-                    <li>Learn JavaScript and make your website interactive and dynamic</li>
-                </ol>
-
-                <!-- Non-blocking element: they sit next each other -->
-                <img src="./assets/images/html.png" style="width:25%;" />
-                <img src="./assets/images/css_logo.png" style="width:25%;" />
-                <img src="./assets/images/js_logo.png" style="width:25%;" />
-
-                <div>
-                    <p>These are very import links for someone who is becoming a web developer:</p>
-                    <ul>
-                        <li> <a href="https://github.com/Asabeneh/30-Days-Of-HTML" target="_blank">30 Days of HTML</a>
-                        </li>
-                        <li><a href="https://github.com/Asabeneh/10-days-of-git-and-github" target="_blank">10 Days of
-                                Git and GitHub</a></li>
-                        <li><a href="https://github.com/Asabeneh/30-Days-Of-JavaScript" target="_blank">30 Days of
-                                JavaScript</a></li>
-                    </ul>
-
-
-                </div>
-
-
-
-
-                <!--Block element - they like to take entire width -->
-                <h2>Subtitle 1</h2>
-                <h2>Subtitle 2</h2>
-                <p>First paragram</p>
-                <p>Second paragraph</p>
-
-
-
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum error praesentium eligendi repellendus
-                    saepe maiores hic sed, atque rem eveniet doloribus enim impedit. Quam inventore saepe, tempora odit
-                    pariatur quasi.
-                    Eum ducimus maxime qui. Provident, voluptas accusantium doloribus dicta obcaecati ullam aliquam illo
-                    facere necessitatibus, officiis maxime quasi sequi eaque? Vero rerum soluta omnis vel obcaecati
-                    officiis, numquam explicabo inventore!
-                    Reprehenderit temporibus saepe laboriosam sunt quae iste dicta odio, iusto accusamus numquam est
-                    nobis necessitatibus nostrum atque error soluta, velit consequatur dolorum, officiis earum suscipit
-                    reiciendis voluptatum dolores? Laborum, impedit?
-                    Dolorum perspiciatis eveniet molestiae aut consequuntur voluptates quod amet facere molestias
-                    suscipit autem odio ipsam fugit unde, dolorem labore non veritatis eius eos, ex ipsum. Tempora vitae
-                    repudiandae velit possimus!
-                    Facilis illum, qui exercitationem et quod dolor fugiat harum nulla id quis assumenda iusto unde nisi
-                    quos? Praesentium ex quod voluptates atque earum, neque voluptatem maxime at vero, quia quaerat?</p>
-            </article>
+        <section class="hero">
+            <div>
+                <h1>Build modern web experiences with practical learning.</h1>
+                <p>
+                    This platform helps you move from beginner to job-ready developer with structured lessons,
+                    project-based practice, and strong professional standards.
+                </p>
+            </div>
+            <div class="badge-row">
+                <span class="badge">HTML Foundations</span>
+                <span class="badge">CSS Architecture</span>
+                <span class="badge">JavaScript Projects</span>
+                <span class="badge">Portfolio Coaching</span>
+            </div>
         </section>
 
         <section>
-            <h2>Backend</h2>
-            <article>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus vero itaque exercitationem
-                    corrupti dolor quidem beatae at quis? Error quibusdam magni harum eaque quae ducimus dignissimos
-                    architecto excepturi aliquam vitae?
-                    Quasi nam repudiandae soluta qui facilis tempore modi, esse, voluptatum laborum nostrum sint ratione
-                    temporibus. Quam nisi voluptatem beatae, nihil cupiditate eaque exercitationem minima quo doloribus
-                    quidem necessitatibus perferendis assumenda.
-                    Reprehenderit, reiciendis? Ipsam animi asperiores eligendi sunt rerum delectus quae perferendis
-                    aspernatur reprehenderit, doloremque obcaecati repellendus sapiente exercitationem architecto sint
-                    iusto minus at id ab accusamus. Perspiciatis quae possimus voluptas.
-                    Fugit dolores neque impedit pariatur veritatis fuga cumque accusamus non quas perferendis qui,
-                    voluptatum deserunt vero, saepe necessitatibus similique reiciendis laudantium praesentium, ut
-                    voluptate dolor laborum nesciunt beatae. Doloribus, saepe.</p>
-            </article>
+            <h2>What You Will Learn</h2>
+            <p class="lead">A focused curriculum designed for modern frontend and fullstack pathways.</p>
+            <div class="grid">
+                <article class="card">
+                    <i class="fa-brands fa-html5"></i>
+                    <h3>Semantic HTML</h3>
+                    <p>Structure accessible, SEO-friendly pages with clean markup and reusable components.</p>
+                </article>
+                <article class="card">
+                    <i class="fa-brands fa-css3-alt"></i>
+                    <h3>Responsive CSS</h3>
+                    <p>Create scalable interfaces using modern layouts, design tokens, and component styling.</p>
+                </article>
+                <article class="card">
+                    <i class="fa-brands fa-js"></i>
+                    <h3>JavaScript Mastery</h3>
+                    <p>Build interactivity, consume APIs, and organize logic with professional engineering practices.</p>
+                </article>
+            </div>
         </section>
 
         <section>
-            <h2>Databases</h2>
-            <article>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam ex nostrum laboriosam laudantium
-                    suscipit vel corporis sed delectus consequuntur eligendi molestias dicta pariatur distinctio,
-                    inventore dolorem, optio nam corrupti? Saepe!
-                    Fugit eos architecto delectus dignissimos nesciunt enim! Ab dolores earum, laboriosam vitae vero
-                    voluptas odit repellat fugit quas nobis doloremque eos hic delectus expedita tenetur nam mollitia
-                    nulla voluptatum magni?
-                    Iure possimus ducimus ratione deleniti, nulla officia dolorem corporis harum illum voluptatem
-                    repellendus consequuntur asperiores delectus! Veritatis aliquam, numquam praesentium voluptate in
-                    odit, consectetur suscipit repudiandae, ut dolor unde eaque.</p>
-            </article>
-        </section>
-
-
-        <section>
-            <h2>Fullstack</h2>
-            <article>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae magni ipsum nulla, doloremque,
-                    voluptates enim quidem, sapiente ipsa ea earum minus animi iure eum dolorem hic quam. Maiores, nisi
-                    possimus.
-                    Illo beatae, autem repellendus dicta a doloremque laboriosam doloribus corporis perspiciatis itaque,
-                    fugiat, et maxime unde. Aliquam accusantium minus, voluptas distinctio obcaecati consequatur nisi
-                    repellendus quod corporis inventore id optio!
-                    Voluptatem, reiciendis iste nostrum ad laborum fugit error blanditiis repellendus in ex eligendi
-                    quasi, unde dolorem. Dolor iure, beatae quasi molestias optio harum non quisquam molestiae
-                    assumenda. Exercitationem, magni nam.</p>
-            </article>
+            <h2>Core Technology Stack</h2>
+            <ul class="inline-list">
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>JavaScript ES6+</li>
+                <li>Git and GitHub</li>
+                <li>REST APIs</li>
+                <li>Responsive Design</li>
+            </ul>
+            <div class="media-row">
+                <img src="./assets/images/html.png" alt="HTML logo">
+                <img src="./assets/images/css_logo.png" alt="CSS logo">
+                <img src="./assets/images/js_logo.png" alt="JavaScript logo">
+            </div>
         </section>
 
         <section>
-            <h2><i class="fas fa-podcast"></i> Podcasts</h2>
-            <article>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quam animi dignissimos repudiandae
-                    ullam, quo esse veniam! Qui sunt aut iure esse, omnis commodi vero libero, optio laboriosam, minima
-                    dolorum.</p>
-                <div>
-                    <audio src="./assets/audios/audio_1.mp3" controls></audio>
-                    <br />
-                    <small>Epsoide 1</small>
-                </div>
-
-                <div>
-                    <audio src="./assets/audios/audio_2.mp3" controls></audio>
-                    <br />
-                    <small>Epsoide 2</small>
-                </div>
-            </article>
-
-        </section>
-
-        <section>
-            <h2><i class="fas fa-video"></i> Video Lesson</h2>
-            <article>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse dolor pariatur saepe itaque, maxime
-                    ullam culpa possimus illo, aspernatur laudantium aliquid quas! Itaque illum officia nulla atque
-                    ullam quis exercitationem?</p>
-                <video src="./assets/videos/js-project.mp4" controls
-                    style="display:block;width: 90%;margin:15px auto;border: 5px solid salmon;border-radius: 5px;"></video>
-                <small>First JavaScript Project</small>
-            </article>
-        </section>
-        <section>
-            <h2><i class="fab fa-youtube"></i> YouTube Tutorilas</h2>
-            <article>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat consequuntur accusantium sequi
-                laboriosam, sed accusamus reprehenderit a officiis suscipit cumque tenetur eveniet quidem unde libero
-                obcaecati expedita excepturi incidunt nam!
-            </article>
-            <iframe height="724" src="https://www.youtube.com/embed/wtsv5zNsMaM"
-                title="1 -  Introduction to Web Development" frameborder="0"
+            <h2>Featured Lesson</h2>
+            <p class="lead">Watch a practical introduction to web development and continue with guided exercises.</p>
+            <iframe height="420" src="https://www.youtube.com/embed/wtsv5zNsMaM"
+                title="Introduction to Web Development"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </section>
 
         <section>
-            <h2><i class="fas fa-list"></i> List of Students</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Name</th>
-                        <th>Gender</th>
-                        <th>Age</th>
-                        <th>Country</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>John</td>
-                        <td>Doe</td>
-                        <td>21</td>
-                        <td>UK</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Antti</td>
-                        <td>Samuli</td>
-                        <td>25</td>
-                        <td>Finland</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Elena</td>
-                        <td>Rossi</td>
-                        <td>30</td>
-                        <td>Italy</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Takashi</td>
-                        <td>Tanaka</td>
-                        <td>42</td>
-                        <td>Japan</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>Amara</td>
-                        <td>Okafor</td>
-                        <td>28</td>
-                        <td>Nigeria</td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td>Lucas</td>
-                        <td>Silva</td>
-                        <td>19</td>
-                        <td>Brazil</td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td>Sophie</td>
-                        <td>Müller</td>
-                        <td>35</td>
-                        <td>Germany</td>
-                    </tr>
-                    <tr>
-                        <td>8</td>
-                        <td>Arjun</td>
-                        <td>Patel</td>
-                        <td>31</td>
-                        <td>India</td>
-                    </tr>
-                    <tr>
-                        <td>9</td>
-                        <td>Chloe</td>
-                        <td>Lefebvre</td>
-                        <td>27</td>
-                        <td>France</td>
-                    </tr>
-                    <tr>
-                        <td>10</td>
-                        <td>Mateo</td>
-                        <td>Garcia</td>
-                        <td>24</td>
-                        <td>Spain</td>
-                    </tr>
-                    <tr>
-                        <td>11</td>
-                        <td>Liam</td>
-                        <td>O'Connor</td>
-                        <td>29</td>
-                        <td>Ireland</td>
-                    </tr>
-                    <tr>
-                        <td>12</td>
-                        <td>Mei</td>
-                        <td>Chen</td>
-                        <td>22</td>
-                        <td>China</td>
-                    </tr>
-                    <tr>
-                        <td>13</td>
-                        <td>Erik</td>
-                        <td>Nilsson</td>
-                        <td>40</td>
-                        <td>Sweden</td>
-                    </tr>
-                    <tr>
-                        <td>14</td>
-                        <td>Zara</td>
-                        <td>Khan</td>
-                        <td>26</td>
-                        <td>Pakistan</td>
-                    </tr>
-                    <tr>
-                        <td>15</td>
-                        <td>Ivan</td>
-                        <td>Petrov</td>
-                        <td>33</td>
-                        <td>Russia</td>
-                    </tr>
-                    <tr>
-                        <td>16</td>
-                        <td>Hanna</td>
-                        <td>Nielsen</td>
-                        <td>37</td>
-                        <td>Denmark</td>
-                    </tr>
-                    <tr>
-                        <td>17</td>
-                        <td>Diego</td>
-                        <td>Morales</td>
-                        <td>45</td>
-                        <td>Mexico</td>
-                    </tr>
-                    <tr>
-                        <td>18</td>
-                        <td>Fatima</td>
-                        <td>Al-Sayed</td>
-                        <td>31</td>
-                        <td>Egypt</td>
-                    </tr>
-                    <tr>
-                        <td>19</td>
-                        <td>Noah</td>
-                        <td>Williams</td>
-                        <td>23</td>
-                        <td>USA</td>
-                    </tr>
-                    <tr>
-                        <td>20</td>
-                        <td>Kim</td>
-                        <td>Ji-hoon</td>
-                        <td>28</td>
-                        <td>South Korea</td>
-                    </tr>
-                    <tr>
-                        <td>21</td>
-                        <td>Olivia</td>
-                        <td>Smith</td>
-                        <td>34</td>
-                        <td>Australia</td>
-                    </tr>
-                    <tr>
-                        <td>22</td>
-                        <td>Lars</td>
-                        <td>Janssen</td>
-                        <td>50</td>
-                        <td>Netherlands</td>
-                    </tr>
-                    <tr>
-                        <td>23</td>
-                        <td>Ines</td>
-                        <td>Ferreira</td>
-                        <td>26</td>
-                        <td>Portugal</td>
-                    </tr>
-                    <tr>
-                        <td>24</td>
-                        <td>Andrej</td>
-                        <td>Novak</td>
-                        <td>39</td>
-                        <td>Slovakia</td>
-                    </tr>
-                    <tr>
-                        <td>25</td>
-                        <td>Sofia</td>
-                        <td>Kostas</td>
-                        <td>29</td>
-                        <td>Greece</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-        <section>
-            <h2>Handing User data</h2>
+            <h2>Quick Enrollment</h2>
+            <p class="lead">Share your details and we will help you choose the right learning path.</p>
             <form>
-                <div>
-                    <label for="firstName">First Name:</label>
-                    <input type="text" placeholder="Your First Name" id="firstName" />
-                </div>
-                <div>
-                    <label for="lastName">Last Name:</label>
-                    <input type="text" placeholder="Your Last Name" id="lastName" />
-                </div>
-                <div>
-                    <label for="gender">Gender:</label>
-                    <select id="gender">
-                        <option value="Female">Female</option>
-                        <option value="Male">Male</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
-                <div>
-                    <p>Gender</p>
-                    <input type="radio" name="gender" id="female" /> <label for="female">Female</label><br />
-                    <input type="radio" name="gender" id="male" /> <label for="male">Male</label> <br />
-                    <input type="radio" name="gender" id="other" /> <label for="other">Other</label>
-
-
-                </div>
-                <div>
-                    <label for="dateOfBirth">Date of birth: </label>
-                    <input type="date" id="dateOfBirth" />
-                </div>
-                <div>
-                    <label for="age">You age: </label> <br />
-                    <input type="number" min=18 max=120>
-
-                </div>
-                <div>
-                    <label for="dateOfBirth">Date of birth: </label>
-                    <input type="datetime-local" id="dateOfBirth" />
-                </div>
-                <div>
-                    <label for="dateOfBirth">Date of birth: </label>
-                    <input type="" id="dateOfBirth" />
-                </div>
-                <div>
-                    <label for="email">Email: </label>
-                    <input type="email" id="email" />
-                </div>
-                <div>
-                    <label for="password">Password: </label>
-                    <input type="password" id="password" />
-                </div>
-                <div>
-                    <label for="favColor">Favorite Color: </label>
-                    <input type="color" id="favColor" />
-                </div>
-                <div>
-                    <p>Skills</p>
+                <div class="form-grid">
                     <div>
-                        <input type="checkbox" id="html" /> <label for="html">HTML</label>
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" placeholder="Your first name">
                     </div>
                     <div>
-                        <input type="checkbox" id="css" /> <label for="css">CSS</label>
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" placeholder="Your last name">
+                    </div>
+                </div>
+                <div class="form-grid">
+                    <div>
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="you@example.com">
                     </div>
                     <div>
-                        <input type="checkbox" id="javascript" /> <label for="javascript">JavaScript</label>
+                        <label for="track">Preferred Track</label>
+                        <select id="track">
+                            <option value="frontend">Frontend Development</option>
+                            <option value="fullstack">Fullstack Development</option>
+                            <option value="ui">UI Engineering</option>
+                        </select>
                     </div>
-                    <div>
-                        <input type="checkbox" id="git" /> <label for="git">Git and GitHub</label>
-                    </div>
-
                 </div>
                 <div>
-                    <label for="message">Message:</label> <br />
-                    <textarea rows="10" cols="120"></textarea>
-                </div>
-
-                <div>
-                    <input type="file">
+                    <label for="message">Message</label>
+                    <textarea id="message" placeholder="Tell us your goal..."></textarea>
                 </div>
                 <div>
-                    <input type="submit" value="Submit" />
+                    <input type="submit" value="Send Request">
                 </div>
-
-
             </form>
         </section>
-
-
     </main>
 
     <footer>
-        <p>Web Development 2026 by Asabeneh Copy Right &copy; 2026</p>
-
-        <div>
-            <a href="https://github.com/Asabeneh" target="_blank"><i class="fab fa-github-square"></i></a>
-            <a href="https://www.linkedin.com/in/asabeneh/" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://twitter.com/Asabeneh" target="_blank"><i class="fab fa-twitter-square"></i></a>
+        <div class="footer-inner">
+            <p>Web Development 2026 by Asabeneh. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://github.com/Asabeneh" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a class="linkedin" href="https://www.linkedin.com/in/asabeneh/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a class="twitter" href="https://twitter.com/Asabeneh" target="_blank" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+            </div>
         </div>
     </footer>
-
-    <script src="./countries-list.js"></script>
-    <!-- <script src="./scripts/basics.js"></script>
-    <script src="./scripts/objects.js"></script> -->
-    <script src="./scripts/higher-order-functions.js"></script>
-    <script>
-        // console.log(countries)
-
-        function filterCountriesByStartLetter(letter) {
-            const newArray = []
-
-            for (let i = 0; i < countries.length; i++) {
-                // console.log(countries[i].toUpperCase(), countries[i].toUpperCase().slice(0, 3))
-
-                if (countries[i].startsWith(letter)) {
-                    newArray.push(countries[i])
-
-                }
-            }
-            return newArray
-        }
-
-        function filterCountrisWithPattern(pattern) {
-            const newArray = []
-
-            for (let i = 0; i < countries.length; i++) {
-                // console.log(countries[i].toUpperCase(), countries[i].toUpperCase().slice(0, 3))
-
-                if (countries[i].includes(pattern)) {
-                    newArray.push(countries[i])
-
-                }
-            }
-            return newArray
-        }
-
-        console.log('land countries', filterCountrisWithPattern('land'))
-        console.log('countries containing stan', filterCountrisWithPattern('stan'))
-
-    </script>
-
 </body>
 
 </html>
