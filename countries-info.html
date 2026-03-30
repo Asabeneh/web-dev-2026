@@ -119,6 +119,11 @@
         const nameBtn = document.getElementById('name-btn')
         const capitalBtn = document.getElementById('capital-btn')
         const populationBtn = document.getElementById('population-btn')
+        const sortDirection = {
+            name: true,
+            capital: true,
+            population: true
+        }
 
         const filterCountriesWithPattern = (arr, pattern) => {
             return arr.filter((country) => {
@@ -158,17 +163,32 @@
         })
 
         nameBtn.addEventListener('click', () => {
-            countries.sort((a, b) => a.name.localeCompare(b.name))
+            if (sortDirection.name) {
+                countries.sort((a, b) => a.name.localeCompare(b.name))
+            } else {
+                countries.sort((a, b) => b.name.localeCompare(a.name))
+            }
+            sortDirection.name = !sortDirection.name
             renderCountries(countries)
         })
 
         capitalBtn.addEventListener('click', () => {
-            countries.sort((a, b) => (a.capital || '').localeCompare(b.capital || ''))
+            if (sortDirection.capital) {
+                countries.sort((a, b) => (a.capital || '').localeCompare(b.capital || ''))
+            } else {
+                countries.sort((a, b) => (b.capital || '').localeCompare(a.capital || ''))
+            }
+            sortDirection.capital = !sortDirection.capital
             renderCountries(countries)
         })
 
         populationBtn.addEventListener('click', () => {
-            countries.sort((a, b) => b.population - a.population)
+            if (sortDirection.population) {
+                countries.sort((a, b) => a.population - b.population)
+            } else {
+                countries.sort((a, b) => b.population - a.population)
+            }
+            sortDirection.population = !sortDirection.population
             renderCountries(countries)
         })
     </script>
